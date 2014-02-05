@@ -200,6 +200,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Nashville Public Works";
 				TargetAttributes = {
+					2D9F3EDA18A2455F00AA3F6C = {
+						DevelopmentTeam = 7MA825R8KR;
+					};
 					2D9F3EFB18A2455F00AA3F6C = {
 						TestTargetID = 2D9F3EDA18A2455F00AA3F6C;
 					};
@@ -379,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taxi Rating/Taxi Rating-Prefix.pch";
 				INFOPLIST_FILE = "Taxi Rating/Taxi Rating-Info.plist";
@@ -392,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Taxi Rating/Taxi Rating-Prefix.pch";
 				INFOPLIST_FILE = "Taxi Rating/Taxi Rating-Info.plist";
@@ -461,6 +466,7 @@
 				2D9F3F0F18A2455F00AA3F6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D9F3F1018A2455F00AA3F6C /* Build configuration list for PBXNativeTarget "Taxi RatingTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +475,7 @@
 				2D9F3F1218A2455F00AA3F6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
