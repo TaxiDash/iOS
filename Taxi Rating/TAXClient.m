@@ -31,8 +31,8 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
     return _sharedClient;
 }
 
-- (NSURLSessionDataTask *)fetchTestWithCompletionBlock:(void (^)(BOOL success, id responseObject))completionBlock {
-    NSString *path = [@"drivers_controller" stringByAppendingPathComponent:@"demo.json"];
+- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID andCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
+    NSString *path = [@"drivers" stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", driverID]];
     
     NSURLSessionDataTask *task = [self GET:path
                                 parameters:nil

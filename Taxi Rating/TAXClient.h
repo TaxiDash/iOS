@@ -14,8 +14,6 @@
 
 + (instancetype)sharedClient;
 
-- (NSURLSessionDataTask *)fetchTestWithCompletionBlock:(void (^)(BOOL success, id responseObject))completionBlock;
-
-- (NSURLSessionDataTask *)fetchDriverWithCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
+- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID andCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
 
 @end
