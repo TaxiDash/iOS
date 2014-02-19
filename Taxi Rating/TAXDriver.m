@@ -106,4 +106,20 @@
                               totalRatings:(NSUInteger)totalRatings];
 }
 
+#pragma mark - NSObject
+
+- (BOOL)isEqual:(id)object {
+    return (self == object) || ([object isKindOfClass:[self class]] && [self isEqualToDriver:object]);
+}
+
+- (NSUInteger)hash {
+    return [self.firstName hash] ^ [self.lastName hash] ^ [self.dateOfBirth hash];
+}
+
+#pragma mark - Helper Method
+
+- (BOOL)isEqualToDriver:(TAXDriver *)driver {
+    return [self.firstName isEqualToString:driver.firstName] && [self.lastName isEqualToString:driver.lastName] && [self.dateOfBirth isEqualToString:driver.dateOfBirth];
+}
+
 @end
