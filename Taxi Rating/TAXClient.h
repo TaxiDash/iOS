@@ -8,10 +8,14 @@
 
 #import "AFHTTPSessionManager.h"
 
+@class TAXDriver;
+
 @interface TAXClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
 
 - (NSURLSessionDataTask *)fetchTestWithCompletionBlock:(void (^)(BOOL success, id responseObject))completionBlock;
+
+- (NSURLSessionDataTask *)fetchDriverWithCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
 
 @end
