@@ -8,6 +8,7 @@
 
 #import "TAXRateViewController.h"
 #import "TAXClient.h"
+#import "TAXDriver.h"
 
 @interface TAXRateViewController ()
 
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *threeStarButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourStarButton;
 @property (weak, nonatomic) IBOutlet UIButton *fiveStarButton;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
 
 @end
 
@@ -55,7 +56,24 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"UnwindRateDone"]) {
-        
+        [[TAXClient sharedClient] postRatingForDriverID:self.driver.identifier
+                                             withRating:self.rating
+                                               comments:self.commentsTextView.text
+                                     andCompletionBlock:^(BOOL success) {
+                                         if (success) {
+                                             [[[UIAlertView alloc] initWithTitle:@"Success"
+                                                                        message:@"Successfully posted rating!"
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                               otherButtonTitles:nil] show];
+                                         } else {
+                                             [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                                         message:@"The rating was not posted."
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"OK"
+                                                               otherButtonTitles:nil] show];
+                                         }
+                                     }];
     }
 }
 

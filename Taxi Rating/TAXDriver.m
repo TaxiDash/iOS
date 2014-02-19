@@ -12,29 +12,31 @@
 
 #pragma mark - Designated Initializer
 
-- (instancetype)initWithFirstName:(NSString *)firstName
-                       middleName:(NSString *)middleName
-                         lastName:(NSString *)lastName
-                      dateOfBirth:(NSString *)dateOfBirth
-                             race:(NSString *)race
-                              sex:(NSString *)sex
-                           height:(NSUInteger)height
-                           weight:(NSUInteger)weight
-                          license:(NSUInteger)license
-                      phoneNumber:(NSUInteger)phoneNumber
-           trainingCompletionDate:(NSString *)trainingCompletionDate
-             permitExpirationDate:(NSString *)permitExpirationDate
-                     permitNumber:(NSUInteger)permitNumber
-                           status:(NSString *)status
-                            owner:(NSString *)owner
-                      companyName:(NSString *)companyName
-           physicalExpirationDate:(NSString *)physicalExpirationDate
-                            valid:(BOOL)valid
-                    averageRating:(CGFloat)averageRating
-                     totalRatings:(NSUInteger)totalRatings {
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                         firstName:(NSString *)firstName
+                        middleName:(NSString *)middleName
+                          lastName:(NSString *)lastName
+                       dateOfBirth:(NSString *)dateOfBirth
+                              race:(NSString *)race
+                               sex:(NSString *)sex
+                            height:(NSUInteger)height
+                            weight:(NSUInteger)weight
+                           license:(NSUInteger)license
+                       phoneNumber:(NSUInteger)phoneNumber
+            trainingCompletionDate:(NSString *)trainingCompletionDate
+              permitExpirationDate:(NSString *)permitExpirationDate
+                      permitNumber:(NSUInteger)permitNumber
+                            status:(NSString *)status
+                             owner:(NSString *)owner
+                       companyName:(NSString *)companyName
+            physicalExpirationDate:(NSString *)physicalExpirationDate
+                             valid:(BOOL)valid
+                     averageRating:(CGFloat)averageRating
+                      totalRatings:(NSUInteger)totalRatings; {
     self = [super init];
     
     if (self) {
+        _identifier = identifier;
         _firstName = firstName;
         _middleName = middleName;
         _lastName = lastName;
@@ -63,47 +65,49 @@
 
 #pragma mark - Factory Method
 
-+ (instancetype)driverWithFirstName:(NSString *)firstName
-                         middleName:(NSString *)middleName
-                           lastName:(NSString *)lastName
-                        dateOfBirth:(NSString *)dateOfBirth
-                               race:(NSString *)race
-                                sex:(NSString *)sex
-                             height:(NSUInteger)height
-                             weight:(NSUInteger)weight
-                            license:(NSUInteger)license
-                        phoneNumber:(NSUInteger)phoneNumber
-             trainingCompletionDate:(NSString *)trainingCompletionDate
-               permitExpirationDate:(NSString *)permitExpirationDate
-                       permitNumber:(NSUInteger)permitNumber
-                             status:(NSString *)status
-                              owner:(NSString *)owner
-                        companyName:(NSString *)companyName
-             physicalExpirationDate:(NSString *)physicalExpirationDate
-                              valid:(BOOL)valid
-                      averageRating:(CGFloat)averageRating
-                       totalRatings:(NSUInteger)totalRatings {
++ (instancetype)driverWithIdentifier:(NSString *)identifier
+                           firstName:(NSString *)firstName
+                          middleName:(NSString *)middleName
+                            lastName:(NSString *)lastName
+                         dateOfBirth:(NSString *)dateOfBirth
+                                race:(NSString *)race
+                                 sex:(NSString *)sex
+                              height:(NSUInteger)height
+                              weight:(NSUInteger)weight
+                             license:(NSUInteger)license
+                         phoneNumber:(NSUInteger)phoneNumber
+              trainingCompletionDate:(NSString *)trainingCompletionDate
+                permitExpirationDate:(NSString *)permitExpirationDate
+                        permitNumber:(NSUInteger)permitNumber
+                              status:(NSString *)status
+                               owner:(NSString *)owner
+                         companyName:(NSString *)companyName
+              physicalExpirationDate:(NSString *)physicalExpirationDate
+                               valid:(BOOL)valid
+                       averageRating:(CGFloat)averageRating
+                        totalRatings:(NSUInteger)totalRatings; {
     
-    return [[self alloc] initWithFirstName:(NSString *)firstName
-                                middleName:(NSString *)middleName
-                                  lastName:(NSString *)lastName
-                               dateOfBirth:(NSString *)dateOfBirth
-                                      race:(NSString *)race
-                                       sex:(NSString *)sex
-                                    height:(NSUInteger)height
-                                    weight:(NSUInteger)weight
-                                   license:(NSUInteger)license
-                               phoneNumber:(NSUInteger)phoneNumber
-                    trainingCompletionDate:(NSString *)trainingCompletionDate
-                      permitExpirationDate:(NSString *)permitExpirationDate
-                              permitNumber:(NSUInteger)permitNumber
-                                    status:(NSString *)status
-                                     owner:(NSString *)owner
-                               companyName:(NSString *)companyName
-                    physicalExpirationDate:(NSString *)physicalExpirationDate
-                                     valid:(BOOL)valid
-                             averageRating:(CGFloat)averageRating
-                              totalRatings:(NSUInteger)totalRatings];
+    return [[self alloc] initWithIdentifier:(NSString *)identifier
+                                  firstName:(NSString *)firstName
+                                 middleName:(NSString *)middleName
+                                   lastName:(NSString *)lastName
+                                dateOfBirth:(NSString *)dateOfBirth
+                                       race:(NSString *)race
+                                        sex:(NSString *)sex
+                                     height:(NSUInteger)height
+                                     weight:(NSUInteger)weight
+                                    license:(NSUInteger)license
+                                phoneNumber:(NSUInteger)phoneNumber
+                     trainingCompletionDate:(NSString *)trainingCompletionDate
+                       permitExpirationDate:(NSString *)permitExpirationDate
+                               permitNumber:(NSUInteger)permitNumber
+                                     status:(NSString *)status
+                                      owner:(NSString *)owner
+                                companyName:(NSString *)companyName
+                     physicalExpirationDate:(NSString *)physicalExpirationDate
+                                      valid:(BOOL)valid
+                              averageRating:(CGFloat)averageRating
+                               totalRatings:(NSUInteger)totalRatings];
 }
 
 #pragma mark - NSObject

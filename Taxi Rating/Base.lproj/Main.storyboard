@@ -63,7 +63,7 @@
                     <navigationItem key="navigationItem" id="eFB-bX-cv9">
                         <barButtonItem key="rightBarButtonItem" title="Rate" id="Yj1-id-GiC">
                             <connections>
-                                <segue destination="79a-oo-jxA" kind="modal" id="g6u-dT-K3R"/>
+                                <segue destination="79a-oo-jxA" kind="modal" identifier="PresentRate" id="g6u-dT-K3R"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -114,7 +114,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedOne:" destination="ahM-5s-bZ2" eventType="touchUpInside" id="L9F-6U-pws"/>
                                     <action selector="tappedRating:" destination="ahM-5s-bZ2" eventType="touchUpInside" id="wvh-qU-cBz"/>
                                 </connections>
                             </button>
@@ -198,10 +197,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="commentsTextView" destination="Pip-eR-NFS" id="JE1-xf-OgE"/>
                         <outlet property="fiveStarButton" destination="PqU-d7-mI7" id="LEH-eu-sVc"/>
                         <outlet property="fourStarButton" destination="FPK-GX-Kbv" id="mQm-mc-cFA"/>
                         <outlet property="oneStarButton" destination="IoX-Yj-Yy6" id="2fx-nP-3Yh"/>
-                        <outlet property="textView" destination="Pip-eR-NFS" id="FUY-BE-xNW"/>
                         <outlet property="threeStarButton" destination="V9o-4s-UmI" id="4KS-Uh-GvE"/>
                         <outlet property="twoStarButton" destination="4OB-aj-sZW" id="0MJ-eK-qmW"/>
                     </connections>

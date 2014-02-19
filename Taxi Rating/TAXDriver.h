@@ -10,6 +10,7 @@
 
 @interface TAXDriver : NSObject
 
+@property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, copy) NSString *firstName;
 @property (nonatomic, copy) NSString *middleName;
 @property (nonatomic, copy) NSString *lastName;
@@ -32,7 +33,8 @@
 @property (nonatomic) CGFloat averageRating;
 @property (nonatomic) NSUInteger totalRatings;
 
-- (instancetype)initWithFirstName:(NSString *)firstName
+- (instancetype)initWithIdentifier:(NSString *)identifier
+                         firstName:(NSString *)firstName
                        middleName:(NSString *)middleName
                          lastName:(NSString *)lastName
                       dateOfBirth:(NSString *)dateOfBirth
@@ -53,25 +55,26 @@
                     averageRating:(CGFloat)averageRating
                      totalRatings:(NSUInteger)totalRatings;
 
-+ (instancetype)driverWithFirstName:(NSString *)firstName
-                         middleName:(NSString *)middleName
-                           lastName:(NSString *)lastName
-                        dateOfBirth:(NSString *)dateOfBirth
-                               race:(NSString *)race
-                                sex:(NSString *)sex
-                             height:(NSUInteger)height
-                             weight:(NSUInteger)weight
-                            license:(NSUInteger)license
-                        phoneNumber:(NSUInteger)phoneNumber
-             trainingCompletionDate:(NSString *)trainingCompletionDate
-               permitExpirationDate:(NSString *)permitExpirationDate
-                       permitNumber:(NSUInteger)permitNumber
-                             status:(NSString *)status
-                              owner:(NSString *)owner
-                        companyName:(NSString *)companyName
-             physicalExpirationDate:(NSString *)physicalExpirationDate
-                              valid:(BOOL)valid
-                      averageRating:(CGFloat)averageRating
-                       totalRatings:(NSUInteger)totalRatings;
++ (instancetype)driverWithIdentifier:(NSString *)identifier
+                           firstName:(NSString *)firstName
+                          middleName:(NSString *)middleName
+                            lastName:(NSString *)lastName
+                         dateOfBirth:(NSString *)dateOfBirth
+                                race:(NSString *)race
+                                 sex:(NSString *)sex
+                              height:(NSUInteger)height
+                              weight:(NSUInteger)weight
+                             license:(NSUInteger)license
+                         phoneNumber:(NSUInteger)phoneNumber
+              trainingCompletionDate:(NSString *)trainingCompletionDate
+                permitExpirationDate:(NSString *)permitExpirationDate
+                        permitNumber:(NSUInteger)permitNumber
+                              status:(NSString *)status
+                               owner:(NSString *)owner
+                         companyName:(NSString *)companyName
+              physicalExpirationDate:(NSString *)physicalExpirationDate
+                               valid:(BOOL)valid
+                       averageRating:(CGFloat)averageRating
+                        totalRatings:(NSUInteger)totalRatings;
 
 @end

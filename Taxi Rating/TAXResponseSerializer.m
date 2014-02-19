@@ -23,26 +23,27 @@
         if (![secondPathComponent isEqualToString:lastPathComponent]) {
             NSDictionary *driverResponseDictionary = responseObject;
             
-            responseObject = [TAXDriver driverWithFirstName:driverResponseDictionary[@"first_name"]
-                                                 middleName:driverResponseDictionary[@"middle_name"]
-                                                   lastName:driverResponseDictionary[@"last_name"]
-                                                dateOfBirth:driverResponseDictionary[@"dob"]
-                                                       race:driverResponseDictionary[@"race"]
-                                                        sex:driverResponseDictionary[@"sex"]
-                                                     height:[driverResponseDictionary[@"height"] integerValue]
-                                                     weight:[driverResponseDictionary[@"weight"] integerValue]
-                                                    license:[driverResponseDictionary[@"license"] integerValue]
-                                                phoneNumber:[driverResponseDictionary[@"phone_number"] integerValue]
-                                     trainingCompletionDate:driverResponseDictionary[@"training_completion_date"]
-                                       permitExpirationDate:driverResponseDictionary[@"permit_expiration_date"]
-                                               permitNumber:[driverResponseDictionary[@"permit_number"] integerValue]
-                                                     status:driverResponseDictionary[@"status"]
-                                                      owner:driverResponseDictionary[@"owner"]
-                                                companyName:driverResponseDictionary[@"company_name"]
-                                     physicalExpirationDate:driverResponseDictionary[@"physical_expiration_date"]
-                                                      valid:driverResponseDictionary[@"valid"]
-                                              averageRating:[driverResponseDictionary[@"average_rating"] floatValue]
-                                               totalRatings:[driverResponseDictionary[@"total_ratings"] integerValue]];
+            responseObject = [TAXDriver driverWithIdentifier:[driverResponseDictionary[@"id"] stringValue]
+                                                   firstName:driverResponseDictionary[@"first_name"]
+                                                  middleName:driverResponseDictionary[@"middle_name"]
+                                                    lastName:driverResponseDictionary[@"last_name"]
+                                                 dateOfBirth:driverResponseDictionary[@"dob"]
+                                                        race:driverResponseDictionary[@"race"]
+                                                         sex:driverResponseDictionary[@"sex"]
+                                                      height:[driverResponseDictionary[@"height"] integerValue]
+                                                      weight:[driverResponseDictionary[@"weight"] integerValue]
+                                                     license:[driverResponseDictionary[@"license"] integerValue]
+                                                 phoneNumber:[driverResponseDictionary[@"phone_number"] integerValue]
+                                      trainingCompletionDate:driverResponseDictionary[@"training_completion_date"]
+                                        permitExpirationDate:driverResponseDictionary[@"permit_expiration_date"]
+                                                permitNumber:[driverResponseDictionary[@"permit_number"] integerValue]
+                                                      status:driverResponseDictionary[@"status"]
+                                                       owner:driverResponseDictionary[@"owner"]
+                                                 companyName:driverResponseDictionary[@"company_name"]
+                                      physicalExpirationDate:driverResponseDictionary[@"physical_expiration_date"]
+                                                       valid:driverResponseDictionary[@"valid"]
+                                               averageRating:[driverResponseDictionary[@"average_rating"] floatValue]
+                                                totalRatings:[driverResponseDictionary[@"total_ratings"] integerValue]];
         }
     }
     

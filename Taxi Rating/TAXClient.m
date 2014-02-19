@@ -49,7 +49,7 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
 
 #pragma mark - Instance Methods
 
-- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID andCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
+- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID withCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
     NSString *path = [@"drivers" stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", driverID]];
     
     NSURLSessionDataTask *task = [self GET:path
@@ -74,6 +74,37 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
                                            completionBlock(NO, nil);
                                        });
                                    }];
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL))completionBlock {
+    NSDictionary *params = @{@"rating": @{@"driver_id": driverID,
+                                          @"rating": @(rating),
+                                          @"comments": comments}};
+    
+    NSURLSessionDataTask *task = [self POST:@"ratings.json"
+                                 parameters:params
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        
+                                        if (httpResponse.statusCode == 201) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completionBlock(YES);
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completionBlock(NO);
+                                            });
+                                            
+                                            NSLog(@"Received: %@", responseObject);
+                                            NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            completionBlock(NO);
+                                        });
+                                    }];
     
     return task;
 }

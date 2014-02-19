@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TAXDriver;
+
 @interface TAXRateViewController : UIViewController
+
+@property (strong, nonatomic) TAXDriver *driver;
 
 @end

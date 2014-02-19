@@ -9,6 +9,7 @@
 #import "TAXDriverViewController.h"
 #import "TAXClient.h"
 #import "TAXDriver.h"
+#import "TAXRateViewController.h"
 
 @interface TAXDriverViewController ()
 
@@ -40,23 +41,34 @@
     [super viewDidLoad];
     
     [[TAXClient sharedClient] fetchDriverWithID:@"1"
-                             andCompletionBlock:^(BOOL success, TAXDriver *driver) {
-                                 if (success) {
-                                     self.driver = driver;
-                                 } else {
-                                     [[[UIAlertView alloc] initWithTitle:@"Failure"
-                                                                 message:@"Failed to connect to the server"
-                                                                delegate:nil
-                                                       cancelButtonTitle:@"OK"
-                                                       otherButtonTitles:nil] show];
-                                 }
-                             }];
+                            withCompletionBlock:^(BOOL success, TAXDriver *driver) {
+                                if (success) {
+                                    self.driver = driver;
+                                } else {
+                                    [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                                message:@"Failed to connect to the server"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil] show];
+                                }
+                            }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PresentRate"]) {
+        UINavigationController *navigationViewController = segue.destinationViewController;
+        TAXRateViewController *rateViewController = navigationViewController.childViewControllers[0];
+        
+        rateViewController.driver = self.driver;
+    }
 }
 
 #pragma mark - IB Actions

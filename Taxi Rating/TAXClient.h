@@ -14,6 +14,8 @@
 
 + (instancetype)sharedClient;
 
-- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID andCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
+- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID withCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
+
+- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL success))completionBlock;
 
 @end
