@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B8C18B46C3600660A1A /* TAXDriver.m */; };
+		2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */; };
 		2D9F3EDF18A2455F00AA3F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EDE18A2455F00AA3F6C /* Foundation.framework */; };
 		2D9F3EE118A2455F00AA3F6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EE018A2455F00AA3F6C /* CoreGraphics.framework */; };
 		2D9F3EE318A2455F00AA3F6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EE218A2455F00AA3F6C /* UIKit.framework */; };
@@ -40,6 +41,8 @@
 		2C17B09015E540D8B39948E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9A0B8B18B46C3600660A1A /* TAXDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXDriver.h; sourceTree = "<group>"; };
 		2D9A0B8C18B46C3600660A1A /* TAXDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXDriver.m; sourceTree = "<group>"; };
+		2D9A0B8F18B47C8D00660A1A /* TAXResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXResponseSerializer.h; sourceTree = "<group>"; };
+		2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXResponseSerializer.m; sourceTree = "<group>"; };
 		2D9F3EDB18A2455F00AA3F6C /* Taxi Rating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi Rating.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9F3EDE18A2455F00AA3F6C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D9F3EE018A2455F00AA3F6C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D9A0B8E18B47C7100660A1A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F3F1318A2491100AA3F6C /* TAXClient.h */,
+				2D9F3F1418A2491100AA3F6C /* TAXClient.m */,
+				2D9A0B8F18B47C8D00660A1A /* TAXResponseSerializer.h */,
+				2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		2D9F3ED218A2455F00AA3F6C = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +144,8 @@
 				2D9F3EF318A2455F00AA3F6C /* TAXViewController.h */,
 				2D9F3EF418A2455F00AA3F6C /* TAXViewController.m */,
 				2D9F3EF618A2455F00AA3F6C /* Images.xcassets */,
+				2D9A0B8E18B47C7100660A1A /* Networking */,
 				2D9F3EE518A2455F00AA3F6C /* Supporting Files */,
-				2D9F3F1318A2491100AA3F6C /* TAXClient.h */,
-				2D9F3F1418A2491100AA3F6C /* TAXClient.m */,
 				2D9A0B8B18B46C3600660A1A /* TAXDriver.h */,
 				2D9A0B8C18B46C3600660A1A /* TAXDriver.m */,
 			);
@@ -308,6 +321,7 @@
 				2D9F3EEB18A2455F00AA3F6C /* main.m in Sources */,
 				2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */,
 				2D9F3F1518A2491100AA3F6C /* TAXClient.m in Sources */,
+				2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */,
 				2D9F3EF518A2455F00AA3F6C /* TAXViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

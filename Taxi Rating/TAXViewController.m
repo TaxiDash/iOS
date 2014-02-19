@@ -29,21 +29,22 @@
 #pragma mark - IB Action
 
 - (IBAction)submitRequestTapped:(UIButton *)sender {
-    [[TAXClient sharedClient] fetchTestWithCompletionBlock:^(BOOL success, id responseObject) {
-        if (success) {
-            [[[UIAlertView alloc] initWithTitle:@"Success"
-                                       message:[NSString stringWithFormat:@"Successfully connected to the server.\nName: %@\nID: %@", responseObject[@"name"], responseObject[@"id"]]
-                                      delegate:nil
-                             cancelButtonTitle:@"OK"
-                             otherButtonTitles:nil] show];
-        } else {
-            [[[UIAlertView alloc] initWithTitle:@"Failure"
-                                       message:@"Failed to connect to the server"
-                                      delegate:nil
-                             cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil] show];
-        }
-    }];
+    [[TAXClient sharedClient] fetchDriverWithID:@"1"
+                             andCompletionBlock:^(BOOL success, TAXDriver *driver) {
+                                 if (success) {
+                                     [[[UIAlertView alloc] initWithTitle:@"Success"
+                                                                 message:[NSString stringWithFormat:@"Successfully connected to the server"]
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil] show];
+                                 } else {
+                                     [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                                 message:@"Failed to connect to the server"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles:nil] show];
+                                 }
+                             }];
 }
 
 @end

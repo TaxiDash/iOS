@@ -7,10 +7,26 @@
 //
 
 #import "TAXClient.h"
+#import "TAXResponseSerializer.h"
 
 static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuapp.com/";
 
 @implementation TAXClient
+
+#pragma mark - Designated Initializer
+
+- (instancetype)initWithBaseURL:(NSURL *)url sessionConfiguration:(NSURLSessionConfiguration *)configuration {
+    self = [super initWithBaseURL:url
+             sessionConfiguration:configuration];
+    
+    if (self) {
+        self.responseSerializer = [TAXResponseSerializer serializer];
+    }
+    
+    return self;
+}
+
+#pragma mark - Singleton
 
 + (instancetype)sharedClient {
     static TAXClient *_sharedClient;
@@ -30,6 +46,8 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
     
     return _sharedClient;
 }
+
+#pragma mark - Instance Methods
 
 - (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID andCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
     NSString *path = [@"drivers" stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", driverID]];
