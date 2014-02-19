@@ -42,13 +42,22 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     BOOL shouldPerformSegue = YES;
     
-    if ([identifier isEqualToString:@"UnwindRateDone"] && self.rating <= 0) {
-        shouldPerformSegue = NO;
-        [[[UIAlertView alloc] initWithTitle:@"Rating Required"
-                                   message:@"Please rate the driver before submitting your rating."
-                                  delegate:nil
-                         cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
+    if ([identifier isEqualToString:@"UnwindRateDone"]) {
+        if (self.rating <= 0) {
+            shouldPerformSegue = NO;
+            [[[UIAlertView alloc] initWithTitle:@"Rating Required"
+                                        message:@"Please rate the driver before submitting your rating."
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        } else if ([self.commentsTextView.text length] > 250) {
+            shouldPerformSegue = NO;
+            [[[UIAlertView alloc] initWithTitle:@"Comments Too Long"
+                                        message:@"Please keep your comments to a maximum of 250 characters."
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
     }
     
     return shouldPerformSegue;
