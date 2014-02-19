@@ -20,6 +20,8 @@
 
 @implementation TAXDriverViewController
 
+#pragma mark - View Controller Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -27,7 +29,7 @@
                              andCompletionBlock:^(BOOL success, TAXDriver *driver) {
                                  if (success) {
                                      self.title = [NSString stringWithFormat:@"%@ %@", driver.firstName, driver.lastName];
-                                     self.ratingLabel.text = [NSString stringWithFormat:@"%f", driver.averageRating];
+                                     self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", driver.averageRating];
                                      self.validLabel.text = driver.isValid ? @"Valid" : @"Not Valid";
                                  } else {
                                      [[[UIAlertView alloc] initWithTitle:@"Failure"
@@ -44,5 +46,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - IB Actions
+
+- (IBAction)userDidRate:(UIStoryboardSegue *)segue {}
+
+- (IBAction)userDidCancelRating:(UIStoryboardSegue *)segue {}
 
 @end
