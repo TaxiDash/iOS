@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mfi-FV-mfd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mfi-FV-mfd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -75,7 +75,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8q-xt-wVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="131"/>
+            <point key="canvasLocation" x="1317" y="131"/>
+        </scene>
+        <!--Cabs Table View Controller - Cabs-->
+        <scene sceneID="8d9-Qe-POO">
+            <objects>
+                <tableViewController id="Mxd-6Q-AWi" customClass="TAXCabsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w1c-0D-hN4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CabCell" textLabel="t5D-zl-ZKk" style="IBUITableViewCellStyleDefault" id="2dN-kS-tIV">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dN-kS-tIV" id="yhj-IV-n16">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5D-zl-ZKk">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="T99-ww-Fym" kind="push" id="ABO-pg-Haz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Mxd-6Q-AWi" id="WHT-OU-cbB"/>
+                            <outlet property="delegate" destination="Mxd-6Q-AWi" id="qEg-5k-d3R"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cabs" id="KU6-BO-aj2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QKF-aK-ioa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uPy-s8-rhl">
@@ -88,7 +129,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="T99-ww-Fym" kind="relationship" relationship="rootViewController" id="aqr-y4-fAY"/>
+                        <segue destination="Mxd-6Q-AWi" kind="relationship" relationship="rootViewController" id="2yc-yk-047"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omg-85-zB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,7 +249,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65K-u5-vsD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Y1W-1Z-PCd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1720" y="131"/>
+            <point key="canvasLocation" x="2180" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gi9-8X-hIV">
@@ -226,7 +267,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFC-EH-35N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="131"/>
+            <point key="canvasLocation" x="1750" y="131"/>
         </scene>
     </scenes>
     <resources>

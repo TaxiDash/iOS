@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D14868218BDF7A000F898FA /* TAXCab.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D14868118BDF7A000F898FA /* TAXCab.m */; };
 		2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B8C18B46C3600660A1A /* TAXDriver.m */; };
 		2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */; };
 		2D9A0B9318B495E800660A1A /* brian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9218B495E800660A1A /* brian.jpg */; };
@@ -26,6 +27,7 @@
 		2D9F3F0818A2455F00AA3F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9F3F0618A2455F00AA3F6C /* InfoPlist.strings */; };
 		2D9F3F0A18A2455F00AA3F6C /* Taxi_RatingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3F0918A2455F00AA3F6C /* Taxi_RatingTests.m */; };
 		2D9F3F1518A2491100AA3F6C /* TAXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3F1418A2491100AA3F6C /* TAXClient.m */; };
+		2DD8447818BDE41900B4296F /* TAXCabsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */; };
 		DC533E4D4A34401C93AA2B10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17B09015E540D8B39948E0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		2C17B09015E540D8B39948E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D14868018BDF7A000F898FA /* TAXCab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCab.h; sourceTree = "<group>"; };
+		2D14868118BDF7A000F898FA /* TAXCab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCab.m; sourceTree = "<group>"; };
 		2D9A0B8B18B46C3600660A1A /* TAXDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXDriver.h; sourceTree = "<group>"; };
 		2D9A0B8C18B46C3600660A1A /* TAXDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXDriver.m; sourceTree = "<group>"; };
 		2D9A0B8F18B47C8D00660A1A /* TAXResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXResponseSerializer.h; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		2D9F3F0918A2455F00AA3F6C /* Taxi_RatingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Taxi_RatingTests.m; sourceTree = "<group>"; };
 		2D9F3F1318A2491100AA3F6C /* TAXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXClient.h; sourceTree = "<group>"; };
 		2D9F3F1418A2491100AA3F6C /* TAXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXClient.m; sourceTree = "<group>"; };
+		2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCabsTableViewController.h; sourceTree = "<group>"; };
+		2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTableViewController.m; sourceTree = "<group>"; };
 		362E713F3B3D4C32925048E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,8 @@
 				2D9F3EF418A2455F00AA3F6C /* TAXDriverViewController.m */,
 				2D9A0B9418B4969500660A1A /* TAXRateViewController.h */,
 				2D9A0B9518B4969500660A1A /* TAXRateViewController.m */,
+				2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */,
+				2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -124,6 +132,8 @@
 			children = (
 				2D9A0B8B18B46C3600660A1A /* TAXDriver.h */,
 				2D9A0B8C18B46C3600660A1A /* TAXDriver.m */,
+				2D14868018BDF7A000F898FA /* TAXCab.h */,
+				2D14868118BDF7A000F898FA /* TAXCab.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -346,8 +356,10 @@
 				2D9F3EEB18A2455F00AA3F6C /* main.m in Sources */,
 				2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */,
 				2D9A0B9618B4969500660A1A /* TAXRateViewController.m in Sources */,
+				2DD8447818BDE41900B4296F /* TAXCabsTableViewController.m in Sources */,
 				2D9F3F1518A2491100AA3F6C /* TAXClient.m in Sources */,
 				2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */,
+				2D14868218BDF7A000F898FA /* TAXCab.m in Sources */,
 				2D9F3EF518A2455F00AA3F6C /* TAXDriverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
