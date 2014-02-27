@@ -16,18 +16,11 @@
                          firstName:(NSString *)firstName
                         middleName:(NSString *)middleName
                           lastName:(NSString *)lastName
-                       dateOfBirth:(NSString *)dateOfBirth
-                              race:(NSString *)race
-                               sex:(NSString *)sex
-                            height:(NSUInteger)height
-                            weight:(NSUInteger)weight
-                           license:(NSUInteger)license
-                       phoneNumber:(NSUInteger)phoneNumber
+                           license:(NSString *)license
             trainingCompletionDate:(NSString *)trainingCompletionDate
               permitExpirationDate:(NSString *)permitExpirationDate
                       permitNumber:(NSUInteger)permitNumber
                             status:(NSString *)status
-                             owner:(NSString *)owner
                        companyName:(NSString *)companyName
             physicalExpirationDate:(NSString *)physicalExpirationDate
                              valid:(BOOL)valid
@@ -40,19 +33,12 @@
         _firstName = firstName;
         _middleName = middleName;
         _lastName = lastName;
-        _dateOfBirth = dateOfBirth;
-        _race = race;
-        _sex = sex;
-        _height = height;
-        _weight = weight;
         
         _license = license;
-        _phoneNumber = phoneNumber;
         _trainingCompletionDate = trainingCompletionDate;
         _permitExpirationDate = permitExpirationDate;
         _permitNumber = permitNumber;
         _status = status;
-        _owner = owner;
         _companyName = companyName;
         _physicalExpirationDate = physicalExpirationDate;
         _valid = valid;
@@ -69,18 +55,11 @@
                            firstName:(NSString *)firstName
                           middleName:(NSString *)middleName
                             lastName:(NSString *)lastName
-                         dateOfBirth:(NSString *)dateOfBirth
-                                race:(NSString *)race
-                                 sex:(NSString *)sex
-                              height:(NSUInteger)height
-                              weight:(NSUInteger)weight
-                             license:(NSUInteger)license
-                         phoneNumber:(NSUInteger)phoneNumber
+                             license:(NSString *)license
               trainingCompletionDate:(NSString *)trainingCompletionDate
                 permitExpirationDate:(NSString *)permitExpirationDate
                         permitNumber:(NSUInteger)permitNumber
                               status:(NSString *)status
-                               owner:(NSString *)owner
                          companyName:(NSString *)companyName
               physicalExpirationDate:(NSString *)physicalExpirationDate
                                valid:(BOOL)valid
@@ -91,18 +70,11 @@
                                   firstName:(NSString *)firstName
                                  middleName:(NSString *)middleName
                                    lastName:(NSString *)lastName
-                                dateOfBirth:(NSString *)dateOfBirth
-                                       race:(NSString *)race
-                                        sex:(NSString *)sex
-                                     height:(NSUInteger)height
-                                     weight:(NSUInteger)weight
-                                    license:(NSUInteger)license
-                                phoneNumber:(NSUInteger)phoneNumber
+                                    license:(NSString *)license
                      trainingCompletionDate:(NSString *)trainingCompletionDate
                        permitExpirationDate:(NSString *)permitExpirationDate
                                permitNumber:(NSUInteger)permitNumber
                                      status:(NSString *)status
-                                      owner:(NSString *)owner
                                 companyName:(NSString *)companyName
                      physicalExpirationDate:(NSString *)physicalExpirationDate
                                       valid:(BOOL)valid
@@ -117,13 +89,13 @@
 }
 
 - (NSUInteger)hash {
-    return [self.firstName hash] ^ [self.lastName hash] ^ [self.dateOfBirth hash];
+    return [self.firstName hash] ^ [self.lastName hash];
 }
 
 #pragma mark - Helper Method
 
 - (BOOL)isEqualToDriver:(TAXDriver *)driver {
-    return [self.firstName isEqualToString:driver.firstName] && [self.lastName isEqualToString:driver.lastName] && [self.dateOfBirth isEqualToString:driver.dateOfBirth];
+    return [self.firstName isEqualToString:driver.firstName] && [self.lastName isEqualToString:driver.lastName];
 }
 
 @end
