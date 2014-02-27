@@ -11,6 +11,8 @@
 #import "TAXDriver.h"
 #import "TAXRateViewController.h"
 
+@import CoreLocation;
+
 @interface TAXDriverViewController ()
 
 @property (strong, nonatomic) TAXDriver *driver;
@@ -40,18 +42,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[TAXClient sharedClient] fetchDriverWithID:@"1"
-                            withCompletionBlock:^(BOOL success, TAXDriver *driver) {
-                                if (success) {
-                                    self.driver = driver;
-                                } else {
-                                    [[[UIAlertView alloc] initWithTitle:@"Failure"
-                                                                message:@"Failed to connect to the server"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil] show];
-                                }
-                            }];
+    if (self.beacon) {
+        [[TAXClient sharedClient] fetchDriverWithBeaconID:self.beacon.minor
+                                      withCompletionBlock:^(BOOL success, TAXDriver *driver) {
+                                          if (success) {
+                                              self.driver = driver;
+                                          } else {
+                                              [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                                          message:@"Failed to connect to the server"
+                                                                         delegate:nil
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil] show];
+                                          }
+                                      }];
+    }
 }
 
 - (void)didReceiveMemoryWarning

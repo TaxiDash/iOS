@@ -8,6 +8,7 @@
 
 #import "TAXCabsTableViewController.h"
 #import "TAXCab.h"
+#import "TAXDriverViewController.h"
 
 @import CoreLocation;
 
@@ -41,7 +42,13 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    [self.locationManager startMonitoringForRegion:beaconRegion];
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+        NSLog(@"Ranging not available");
+    } else {
+        [self.locationManager startRangingBeaconsInRegion:beaconRegion];
+    }
+    
+    //[self.locationManager startMonitoringForRegion:beaconRegion];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,21 +74,28 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"PushDriver"]) {
+        if ([segue.destinationViewController isKindOfClass:[TAXDriverViewController class]]) {
+            TAXDriverViewController *driverViewController = segue.destinationViewController;
+            
+            if ([sender isKindOfClass:[UITableViewCell class]]) {
+                UITableViewCell *cell = sender;
+                NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
+                
+                TAXCab *cab = self.cabs[cellIndexPath.row];
+                driverViewController.beacon = cab.beacon;
+            }
+        }
+    }
 }
-
- */
 
 #pragma mark - Core Location Delegate
 
-- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+/*- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     if ([region isKindOfClass:[CLBeaconRegion class]]) {
         NSLog(@"Region entered");
         
@@ -97,7 +111,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     NSLog(@"Monitoring Error: %@", error);
-}
+}*/
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
     NSLog(@"Beacons ranged");

@@ -19,7 +19,7 @@
     NSString *secondPathComponent = response.URL.pathComponents[1];
     NSString *lastPathComponent = response.URL.lastPathComponent;
     
-    if ([secondPathComponent isEqualToString:@"drivers"]) {
+    if ([secondPathComponent isEqualToString:@"mobile"]) {
         if (![secondPathComponent isEqualToString:lastPathComponent]) {
             NSDictionary *driverResponseDictionary = responseObject;
             
@@ -42,12 +42,36 @@
                                                  companyName:driverResponseDictionary[@"company_name"]
                                       physicalExpirationDate:driverResponseDictionary[@"physical_expiration_date"]
                                                        valid:driverResponseDictionary[@"valid"]
-                                               averageRating:[driverResponseDictionary[@"average_rating"] floatValue]
-                                                totalRatings:[driverResponseDictionary[@"total_ratings"] integerValue]];
+                                               averageRating:[self floatFromPotentiallyNullNumber:driverResponseDictionary[@"average_rating"]]
+                                                totalRatings:[self integerFromPotentiallyNullNumber:driverResponseDictionary[@"total_ratings"]]];
         }
     }
     
     return responseObject;
+}
+
+#pragma mark - Helper Methods
+
+// Returns 0 if NSNull
+- (CGFloat)floatFromPotentiallyNullNumber:(NSNumber *)number {
+    CGFloat floatValue = 0;
+    
+    if ((id)number != [NSNull null]) {
+        floatValue = [number floatValue];
+    }
+    
+    return floatValue;
+}
+
+// Returns 0 if NSNull
+- (NSInteger)integerFromPotentiallyNullNumber:(NSNumber *)number {
+    NSInteger integerValue = 0;
+    
+    if ((id)number != [NSNull null]) {
+        integerValue = [number integerValue];
+    }
+    
+    return integerValue;
 }
 
 @end

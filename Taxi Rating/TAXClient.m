@@ -49,8 +49,8 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
 
 #pragma mark - Instance Methods
 
-- (NSURLSessionDataTask *)fetchDriverWithID:(NSString *)driverID withCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
-    NSString *path = [@"drivers" stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", driverID]];
+- (NSURLSessionDataTask *)fetchDriverWithBeaconID:(NSNumber *)beaconID withCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock {
+    NSString *path = [@"mobile" stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.json", beaconID]];
     
     NSURLSessionDataTask *task = [self GET:path
                                 parameters:nil

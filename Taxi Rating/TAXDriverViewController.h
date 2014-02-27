@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class CLBeacon;
+
 @interface TAXDriverViewController : UIViewController
+
+@property (strong, nonatomic) CLBeacon *beacon;
 
 @end
