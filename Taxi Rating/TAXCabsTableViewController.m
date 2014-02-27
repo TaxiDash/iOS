@@ -43,12 +43,20 @@
     self.locationManager.delegate = self;
     
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
-        NSLog(@"Ranging not available");
+        NSString *appName = [[NSBundle mainBundle] infoDictionary][(NSString *)kCFBundleNameKey];
+        
+        [[[UIAlertView alloc] initWithTitle:@"Location Services Disabled"
+                                    message:[NSString stringWithFormat:@"It looks like you have disabled Location Services for %@. Please go to Settings > Privacy > Location Services and turn these back on, or the app will not be able to locate nearby cabs for you.", appName]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
     } else {
         [self.locationManager startRangingBeaconsInRegion:beaconRegion];
     }
-    
-    //[self.locationManager startMonitoringForRegion:beaconRegion];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // TODO - Check for beacons again if a user has gone to turn Location Services back on and has come back to the app.
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,7 +139,11 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
-    NSLog(@"Ranging error: %@", error);
+    [[[UIAlertView alloc] initWithTitle:@"Bluetooth Disabled"
+                                message:@"Your Bluetooth may be disabled. Please turn this back on, or the app will not be able to locate nearby cabs for you."
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
 }
 
 @end
