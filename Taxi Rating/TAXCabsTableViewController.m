@@ -9,15 +9,16 @@
 #import "TAXCabsTableViewController.h"
 #import "TAXCab.h"
 #import "TAXDriverViewController.h"
+#import "TAXLocationManagerDelegate.h"
 
-@import CoreLocation;
-
-@interface TAXCabsTableViewController () <CLLocationManagerDelegate>
+@interface TAXCabsTableViewController ()
 
 @property (nonatomic, copy) NSArray *cabs;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+
+@property (strong, nonatomic) TAXLocationManagerDelegate *locationManagerDelegate;
 
 @end
 
@@ -32,6 +33,33 @@
     }
     
     return _beaconRegion;
+}
+
+- (TAXLocationManagerDelegate *)locationManagerDelegate {
+    if (!_locationManagerDelegate) {
+        TAXCabsTableViewController * __weak weakSelf = self;
+        
+        _locationManagerDelegate = [TAXLocationManagerDelegate locationManagerDelegateWithDidRangeBeaconsBlock:^(NSArray *beacons) {
+            TAXCabsTableViewController *strongSelf = weakSelf;
+            
+            [strongSelf.refreshControl endRefreshing];
+            
+            NSMutableArray *cabs = [NSMutableArray arrayWithCapacity:[beacons count]];
+            
+            for (CLBeacon *beacon in beacons) {
+                [cabs addObject:[TAXCab cabWithCompanyName:@"Allied"
+                                                 andBeacon:beacon]];
+            }
+            
+            strongSelf.cabs = [cabs copy];
+        } andRangingBeaconsDidFailBlock:^{
+            TAXCabsTableViewController *strongSelf = weakSelf;
+            
+            [strongSelf.refreshControl endRefreshing];
+        }];
+    }
+    
+    return _locationManagerDelegate;
 }
 
 #pragma mark - Custom Setter
@@ -50,7 +78,7 @@
     [super viewDidLoad];
     
     self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
+    self.locationManager.delegate = self.locationManagerDelegate;
     
     [self refresh];
 }
@@ -122,35 +150,6 @@
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     NSLog(@"Monitoring Error: %@", error);
 }*/
-
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
-    NSLog(@"Beacons ranged");
-    
-    if ([beacons count]) {
-        [self.refreshControl endRefreshing];
-        
-        NSMutableArray *cabs = [NSMutableArray arrayWithCapacity:[beacons count]];
-        
-        for (CLBeacon *beacon in beacons) {
-            [cabs addObject:[TAXCab cabWithCompanyName:@"Allied"
-                                             andBeacon:beacon]];
-        }
-        
-        self.cabs = [cabs copy];
-        
-        [manager stopRangingBeaconsInRegion:region];
-    }
-}
-
-- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
-    [self.refreshControl endRefreshing];
-    
-    [[[UIAlertView alloc] initWithTitle:@"Bluetooth Disabled"
-                                message:@"Your Bluetooth may be disabled. Please turn this back on, or the app will not be able to locate nearby cabs for you."
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
-}
 
 #pragma mark - Helper Method
 

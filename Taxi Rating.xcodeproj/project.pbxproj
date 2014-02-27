@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D14868218BDF7A000F898FA /* TAXCab.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D14868118BDF7A000F898FA /* TAXCab.m */; };
+		2D5CE56F18BF236D0092A31C /* TAXLocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE56E18BF236D0092A31C /* TAXLocationManagerDelegate.m */; };
 		2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B8C18B46C3600660A1A /* TAXDriver.m */; };
 		2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */; };
 		2D9A0B9318B495E800660A1A /* brian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9218B495E800660A1A /* brian.jpg */; };
@@ -45,6 +46,8 @@
 		2C17B09015E540D8B39948E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D14868018BDF7A000F898FA /* TAXCab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCab.h; sourceTree = "<group>"; };
 		2D14868118BDF7A000F898FA /* TAXCab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCab.m; sourceTree = "<group>"; };
+		2D5CE56D18BF236D0092A31C /* TAXLocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXLocationManagerDelegate.h; sourceTree = "<group>"; };
+		2D5CE56E18BF236D0092A31C /* TAXLocationManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXLocationManagerDelegate.m; sourceTree = "<group>"; };
 		2D9A0B8B18B46C3600660A1A /* TAXDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXDriver.h; sourceTree = "<group>"; };
 		2D9A0B8C18B46C3600660A1A /* TAXDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXDriver.m; sourceTree = "<group>"; };
 		2D9A0B8F18B47C8D00660A1A /* TAXResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXResponseSerializer.h; sourceTree = "<group>"; };
@@ -103,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D5CE56C18BF23520092A31C /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				2D5CE56D18BF236D0092A31C /* TAXLocationManagerDelegate.h */,
+				2D5CE56E18BF236D0092A31C /* TAXLocationManagerDelegate.m */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
 		2D9A0B8E18B47C7100660A1A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +192,7 @@
 				2D9A0B9818B496AA00660A1A /* Models */,
 				2D9A0B9718B4969C00660A1A /* View Controllers */,
 				2D9A0B8E18B47C7100660A1A /* Networking */,
+				2D5CE56C18BF23520092A31C /* Delegates */,
 				2D9F3EE518A2455F00AA3F6C /* Supporting Files */,
 			);
 			path = "Taxi Rating";
@@ -361,6 +374,7 @@
 				2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */,
 				2D14868218BDF7A000F898FA /* TAXCab.m in Sources */,
 				2D9F3EF518A2455F00AA3F6C /* TAXDriverViewController.m in Sources */,
+				2D5CE56F18BF236D0092A31C /* TAXLocationManagerDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
