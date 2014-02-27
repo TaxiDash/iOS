@@ -15,11 +15,24 @@
 @interface TAXCabsTableViewController () <CLLocationManagerDelegate>
 
 @property (nonatomic, copy) NSArray *cabs;
+
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 
 @end
 
 @implementation TAXCabsTableViewController
+
+#pragma mark - Custom Getter
+
+- (CLBeaconRegion *)beaconRegion {
+    if (!_beaconRegion) {
+        _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"8DEEFBB9-F738-4297-8040-96668BB44281"]
+                                                           identifier:@"cabs"];
+    }
+    
+    return _beaconRegion;
+}
 
 #pragma mark - Custom Setter
 
@@ -36,27 +49,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CLBeaconRegion *beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"8DEEFBB9-F738-4297-8040-96668BB44281"]
-                                                                      identifier:@"home"];
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
-        NSString *appName = [[NSBundle mainBundle] infoDictionary][(NSString *)kCFBundleNameKey];
-        
-        [[[UIAlertView alloc] initWithTitle:@"Location Services Disabled"
-                                    message:[NSString stringWithFormat:@"It looks like you have disabled Location Services for %@. Please go to Settings > Privacy > Location Services and turn these back on, or the app will not be able to locate nearby cabs for you.", appName]
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
-    } else {
-        [self.locationManager startRangingBeaconsInRegion:beaconRegion];
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    // TODO - Check for beacons again if a user has gone to turn Location Services back on and has come back to the app.
+    [self refresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,6 +97,12 @@
     }
 }
 
+#pragma mark - IB Action
+
+- (IBAction)userDidRefresh:(UIRefreshControl *)sender {
+    [self refresh];
+}
+
 #pragma mark - Core Location Delegate
 
 /*- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
@@ -125,6 +127,8 @@
     NSLog(@"Beacons ranged");
     
     if ([beacons count]) {
+        [self.refreshControl endRefreshing];
+        
         NSMutableArray *cabs = [NSMutableArray arrayWithCapacity:[beacons count]];
         
         for (CLBeacon *beacon in beacons) {
@@ -139,11 +143,30 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
+    [self.refreshControl endRefreshing];
+    
     [[[UIAlertView alloc] initWithTitle:@"Bluetooth Disabled"
                                 message:@"Your Bluetooth may be disabled. Please turn this back on, or the app will not be able to locate nearby cabs for you."
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
+}
+
+#pragma mark - Helper Method
+
+- (void)refresh {
+    // If Location Services have been disabled, warn the user. Otherwise, start searching for beacons.
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+        NSString *appName = [[NSBundle mainBundle] infoDictionary][(NSString *)kCFBundleNameKey];
+        
+        [[[UIAlertView alloc] initWithTitle:@"Location Services Disabled"
+                                    message:[NSString stringWithFormat:@"It looks like you have disabled Location Services for %@. Please go to Settings > Privacy > Location Services and turn these back on, or the app will not be able to locate nearby cabs for you.", appName]
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    } else {
+        [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+    }
 }
 
 @end

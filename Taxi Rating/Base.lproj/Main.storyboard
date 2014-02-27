@@ -113,6 +113,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cabs" id="KU6-BO-aj2"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="tkf-Mg-f0V">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="userDidRefresh:" destination="Mxd-6Q-AWi" eventType="valueChanged" id="9gd-qB-cTk"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKF-aK-ioa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
