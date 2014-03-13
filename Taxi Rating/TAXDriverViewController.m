@@ -77,8 +77,10 @@
 
 #pragma mark - IB Actions
 
+// Unwind segue
 - (IBAction)userDidRate:(UIStoryboardSegue *)segue {}
 
+// Unwind segue
 - (IBAction)userDidCancelRating:(UIStoryboardSegue *)segue {}
 
 @end
