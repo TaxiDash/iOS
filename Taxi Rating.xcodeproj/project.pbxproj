@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1983699FEB1E49399D276F37 /* libPods-Taxi RatingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD79EF8C66649C185165698 /* libPods-Taxi RatingTests.a */; };
 		2D14868218BDF7A000F898FA /* TAXCab.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D14868118BDF7A000F898FA /* TAXCab.m */; };
 		2D5CE56F18BF236D0092A31C /* TAXLocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE56E18BF236D0092A31C /* TAXLocationManagerDelegate.m */; };
 		2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B8C18B46C3600660A1A /* TAXDriver.m */; };
@@ -26,9 +27,8 @@
 		2D9F3EFF18A2455F00AA3F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EDE18A2455F00AA3F6C /* Foundation.framework */; };
 		2D9F3F0018A2455F00AA3F6C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EE218A2455F00AA3F6C /* UIKit.framework */; };
 		2D9F3F0818A2455F00AA3F6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D9F3F0618A2455F00AA3F6C /* InfoPlist.strings */; };
-		2D9F3F0A18A2455F00AA3F6C /* Taxi_RatingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3F0918A2455F00AA3F6C /* Taxi_RatingTests.m */; };
 		2D9F3F1518A2491100AA3F6C /* TAXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F3F1418A2491100AA3F6C /* TAXClient.m */; };
-		2DCA2F9818D1929000AA9305 /* TAXCabsTVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA2F9718D1929000AA9305 /* TAXCabsTVCTests.m */; };
+		2DCA2F9818D1929000AA9305 /* TAXCabsTVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */; };
 		2DD8447818BDE41900B4296F /* TAXCabsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */; };
 		DC533E4D4A34401C93AA2B10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17B09015E540D8B39948E0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23FA4D62C2244E9E943513C2 /* Pods-Taxi RatingTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Taxi RatingTests.xcconfig"; path = "Pods/Pods-Taxi RatingTests.xcconfig"; sourceTree = "<group>"; };
 		2C17B09015E540D8B39948E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D14868018BDF7A000F898FA /* TAXCab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCab.h; sourceTree = "<group>"; };
 		2D14868118BDF7A000F898FA /* TAXCab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCab.m; sourceTree = "<group>"; };
@@ -74,13 +75,13 @@
 		2D9F3EFD18A2455F00AA3F6C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		2D9F3F0518A2455F00AA3F6C /* Taxi RatingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Taxi RatingTests-Info.plist"; sourceTree = "<group>"; };
 		2D9F3F0718A2455F00AA3F6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2D9F3F0918A2455F00AA3F6C /* Taxi_RatingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Taxi_RatingTests.m; sourceTree = "<group>"; };
 		2D9F3F1318A2491100AA3F6C /* TAXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXClient.h; sourceTree = "<group>"; };
 		2D9F3F1418A2491100AA3F6C /* TAXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXClient.m; sourceTree = "<group>"; };
-		2DCA2F9718D1929000AA9305 /* TAXCabsTVCTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTVCTests.m; sourceTree = "<group>"; };
+		2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTVCSpec.m; sourceTree = "<group>"; };
 		2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCabsTableViewController.h; sourceTree = "<group>"; };
 		2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTableViewController.m; sourceTree = "<group>"; };
 		362E713F3B3D4C32925048E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		6FD79EF8C66649C185165698 /* libPods-Taxi RatingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Taxi RatingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 				2D9F3EFE18A2455F00AA3F6C /* XCTest.framework in Frameworks */,
 				2D9F3F0018A2455F00AA3F6C /* UIKit.framework in Frameworks */,
 				2D9F3EFF18A2455F00AA3F6C /* Foundation.framework in Frameworks */,
+				1983699FEB1E49399D276F37 /* libPods-Taxi RatingTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +162,7 @@
 				2D9F3EDD18A2455F00AA3F6C /* Frameworks */,
 				2D9F3EDC18A2455F00AA3F6C /* Products */,
 				362E713F3B3D4C32925048E9 /* Pods.xcconfig */,
+				23FA4D62C2244E9E943513C2 /* Pods-Taxi RatingTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +183,7 @@
 				2D9F3EE218A2455F00AA3F6C /* UIKit.framework */,
 				2D9F3EFD18A2455F00AA3F6C /* XCTest.framework */,
 				2C17B09015E540D8B39948E0 /* libPods.a */,
+				6FD79EF8C66649C185165698 /* libPods-Taxi RatingTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,8 +219,7 @@
 		2D9F3F0318A2455F00AA3F6C /* Taxi RatingTests */ = {
 			isa = PBXGroup;
 			children = (
-				2D9F3F0918A2455F00AA3F6C /* Taxi_RatingTests.m */,
-				2DCA2F9718D1929000AA9305 /* TAXCabsTVCTests.m */,
+				2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */,
 				2D9F3F0418A2455F00AA3F6C /* Supporting Files */,
 			);
 			path = "Taxi RatingTests";
@@ -257,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D9F3F1018A2455F00AA3F6C /* Build configuration list for PBXNativeTarget "Taxi RatingTests" */;
 			buildPhases = (
+				FEFF45B4146C4C51B199D832 /* Check Pods Manifest.lock */,
 				2D9F3EF818A2455F00AA3F6C /* Sources */,
 				2D9F3EF918A2455F00AA3F6C /* Frameworks */,
 				2D9F3EFA18A2455F00AA3F6C /* Resources */,
+				2E4AB507A61A46338841D0DA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -331,6 +336,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E4AB507A61A46338841D0DA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Taxi RatingTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9DFD4862300B4A069EE9A5AA /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,6 +367,21 @@
 			showEnvVarsInLog = 0;
 		};
 		CFB7BB43D5434AD4AF995E0B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FEFF45B4146C4C51B199D832 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,8 +420,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCA2F9818D1929000AA9305 /* TAXCabsTVCTests.m in Sources */,
-				2D9F3F0A18A2455F00AA3F6C /* Taxi_RatingTests.m in Sources */,
+				2DCA2F9818D1929000AA9305 /* TAXCabsTVCSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +564,7 @@
 		};
 		2D9F3F1118A2455F00AA3F6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23FA4D62C2244E9E943513C2 /* Pods-Taxi RatingTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taxi Rating.app/Taxi Rating";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -552,6 +587,7 @@
 		};
 		2D9F3F1218A2455F00AA3F6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23FA4D62C2244E9E943513C2 /* Pods-Taxi RatingTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Taxi Rating.app/Taxi Rating";
 				FRAMEWORK_SEARCH_PATHS = (

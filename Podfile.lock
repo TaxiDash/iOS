@@ -17,14 +17,23 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - Expecta (0.3.0)
+  - OCMock (2.2.3)
   - SAMTextView (0.2.1)
+  - Specta (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - Expecta
+  - OCMock
   - SAMTextView
+  - Specta
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
+  OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
   SAMTextView: f0dae9662a7cc45e890eb2b24aa1769148ea2933
+  Specta: 2d06220591110c6d9757d8be8ecf8e63aa40dc2a
 
 COCOAPODS: 0.29.0

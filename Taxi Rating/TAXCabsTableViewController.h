@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CLLocationManager;
+@class TAXLocationManagerDelegate;
+
 @interface TAXCabsTableViewController : UITableViewController
+
+@property (nonatomic, copy, readonly) NSArray *cabs;
+
+@property (strong, nonatomic, readonly) CLLocationManager *locationManager;
+
+@property (strong, nonatomic, readonly) TAXLocationManagerDelegate *locationManagerDelegate;
 
 @end

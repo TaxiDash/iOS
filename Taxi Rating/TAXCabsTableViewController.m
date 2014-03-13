@@ -13,12 +13,12 @@
 
 @interface TAXCabsTableViewController ()
 
-@property (nonatomic, copy) NSArray *cabs;
+@property (nonatomic, copy, readwrite) NSArray *cabs;
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic, readwrite) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 
-@property (strong, nonatomic) TAXLocationManagerDelegate *locationManagerDelegate;
+@property (strong, nonatomic, readwrite) TAXLocationManagerDelegate *locationManagerDelegate;
 
 @end
 
