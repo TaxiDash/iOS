@@ -51,6 +51,30 @@
                                                  andBeacon:beacon]];
             }
             
+            [cabs sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"beacon"
+                                                                       ascending:YES
+                                                                      comparator:^NSComparisonResult(id obj1, id obj2) {
+                                                                          CLBeacon *beacon1 = obj1;
+                                                                          CLBeacon *beacon2 = obj2;
+                                                                          
+                                                                          CLProximity proximity1 = beacon1.proximity;
+                                                                          CLProximity proximity2 = beacon2.proximity;
+                                                                          
+                                                                          NSComparisonResult result;
+                                                                          
+                                                                          if (proximity1 == proximity2) {
+                                                                              result = NSOrderedSame;
+                                                                          } else if (proximity1 == CLProximityUnknown || proximity1 > proximity2) {
+                                                                              result = NSOrderedDescending;
+                                                                          } else {
+                                                                              result = NSOrderedAscending;
+                                                                          }
+                                                                          
+                                                                          return result;
+                                                                      }],
+                                         [NSSortDescriptor sortDescriptorWithKey:@"beacon.accuracy"
+                                                                       ascending:YES]]];
+            
             strongSelf.cabs = [cabs copy];
         } andRangingBeaconsDidFailBlock:^{
             TAXCabsTableViewController *strongSelf = weakSelf;
