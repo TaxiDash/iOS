@@ -1,5 +1,6 @@
 language: objective-c
 xcode_workspace: Taxi Rating.xcworkspace
 xcode_scheme: Taxi Rating
+xcode_sdk: iphonesimulator
 
 before_install: gem install cocoapods
