@@ -17,11 +17,14 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - SAMTextView (0.2.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - SAMTextView
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  SAMTextView: f0dae9662a7cc45e890eb2b24aa1769148ea2933
 
 COCOAPODS: 0.29.0

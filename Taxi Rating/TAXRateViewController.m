@@ -9,6 +9,7 @@
 #import "TAXRateViewController.h"
 #import "TAXClient.h"
 #import "TAXDriver.h"
+#import <SAMTextView/SAMTextView.h>
 
 @interface TAXRateViewController ()
 
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *threeStarButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourStarButton;
 @property (weak, nonatomic) IBOutlet UIButton *fiveStarButton;
-@property (weak, nonatomic) IBOutlet UITextView *commentsTextView;
+@property (weak, nonatomic) IBOutlet SAMTextView *commentsTextView;
 
 @end
 
@@ -29,6 +30,8 @@
     [super viewDidLoad];
     
     self.rating = 0;
+    
+    self.commentsTextView.placeholder = @"Comments";
 }
 
 - (void)didReceiveMemoryWarning
