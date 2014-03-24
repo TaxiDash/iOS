@@ -12,7 +12,6 @@
 		2D5CE56F18BF236D0092A31C /* TAXLocationManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE56E18BF236D0092A31C /* TAXLocationManagerDelegate.m */; };
 		2D9A0B8D18B46C3600660A1A /* TAXDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B8C18B46C3600660A1A /* TAXDriver.m */; };
 		2D9A0B9118B47C8D00660A1A /* TAXResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */; };
-		2D9A0B9318B495E800660A1A /* brian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9218B495E800660A1A /* brian.jpg */; };
 		2D9A0B9618B4969500660A1A /* TAXRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A0B9518B4969500660A1A /* TAXRateViewController.m */; };
 		2D9F3EDF18A2455F00AA3F6C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EDE18A2455F00AA3F6C /* Foundation.framework */; };
 		2D9F3EE118A2455F00AA3F6C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9F3EE018A2455F00AA3F6C /* CoreGraphics.framework */; };
@@ -32,6 +31,7 @@
 		2DBF4C4F18E01AD900645B84 /* checkercab.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DBF4C4E18E01AD900645B84 /* checkercab.jpg */; };
 		2DBF4C5118E01ADF00645B84 /* musiccitytaxi.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2DBF4C5018E01ADF00645B84 /* musiccitytaxi.gif */; };
 		2DBF4C5418E01E9700645B84 /* TAXCabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF4C5318E01E9700645B84 /* TAXCabTableViewCell.m */; };
+		2DBF4C5718E0277800645B84 /* brian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DBF4C5618E0277800645B84 /* brian.jpg */; };
 		2DCA2F9818D1929000AA9305 /* TAXCabsTVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */; };
 		2DD8447818BDE41900B4296F /* TAXCabsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */; };
 		DC533E4D4A34401C93AA2B10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17B09015E540D8B39948E0 /* libPods.a */; };
@@ -58,7 +58,6 @@
 		2D9A0B8C18B46C3600660A1A /* TAXDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXDriver.m; sourceTree = "<group>"; };
 		2D9A0B8F18B47C8D00660A1A /* TAXResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXResponseSerializer.h; sourceTree = "<group>"; };
 		2D9A0B9018B47C8D00660A1A /* TAXResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXResponseSerializer.m; sourceTree = "<group>"; };
-		2D9A0B9218B495E800660A1A /* brian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brian.jpg; sourceTree = "<group>"; };
 		2D9A0B9418B4969500660A1A /* TAXRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXRateViewController.h; sourceTree = "<group>"; };
 		2D9A0B9518B4969500660A1A /* TAXRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXRateViewController.m; sourceTree = "<group>"; };
 		2D9F3EDB18A2455F00AA3F6C /* Taxi Rating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Taxi Rating.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +85,7 @@
 		2DBF4C5018E01ADF00645B84 /* musiccitytaxi.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = musiccitytaxi.gif; sourceTree = "<group>"; };
 		2DBF4C5218E01E9700645B84 /* TAXCabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCabTableViewCell.h; sourceTree = "<group>"; };
 		2DBF4C5318E01E9700645B84 /* TAXCabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabTableViewCell.m; sourceTree = "<group>"; };
+		2DBF4C5618E0277800645B84 /* brian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brian.jpg; sourceTree = "<group>"; };
 		2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTVCSpec.m; sourceTree = "<group>"; };
 		2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCabsTableViewController.h; sourceTree = "<group>"; };
 		2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTableViewController.m; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				2DA0202E18E015FC0099E975 /* allied.jpg */,
 				2DBF4C5018E01ADF00645B84 /* musiccitytaxi.gif */,
 				2DBF4C4E18E01AD900645B84 /* checkercab.jpg */,
-				2D9A0B9218B495E800660A1A /* brian.jpg */,
+				2DBF4C5618E0277800645B84 /* brian.jpg */,
 				2D9F3EE618A2455F00AA3F6C /* Taxi Rating-Info.plist */,
 				2D9F3EE718A2455F00AA3F6C /* InfoPlist.strings */,
 				2D9F3EEA18A2455F00AA3F6C /* main.m */,
@@ -340,12 +340,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D9A0B9318B495E800660A1A /* brian.jpg in Resources */,
 				2D9F3EF718A2455F00AA3F6C /* Images.xcassets in Resources */,
 				2D9F3EE918A2455F00AA3F6C /* InfoPlist.strings in Resources */,
 				2DBF4C5118E01ADF00645B84 /* musiccitytaxi.gif in Resources */,
 				2D9F3EF218A2455F00AA3F6C /* Main.storyboard in Resources */,
 				2DBF4C4F18E01AD900645B84 /* checkercab.jpg in Resources */,
+				2DBF4C5718E0277800645B84 /* brian.jpg in Resources */,
 				2DA0202F18E015FC0099E975 /* allied.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
