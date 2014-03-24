@@ -14,11 +14,11 @@
 
 #pragma mark - Designated Initializer
 
-- (instancetype)initWithCompanyName:(NSString *)companyName andBeacon:(CLBeacon *)beacon {
+- (instancetype)initWithBeacon:(CLBeacon *)beacon {
     self = [super init];
     
     if (self) {
-        _companyName = companyName;
+        _companyName = [self companyNameForBeacon:beacon];
         _beacon = beacon;
     }
     
@@ -27,9 +27,8 @@
 
 #pragma mark - Factory Method
 
-+ (instancetype)cabWithCompanyName:(NSString *)companyName andBeacon:(CLBeacon *)beacon {
-    return [[self alloc] initWithCompanyName:companyName
-                                   andBeacon:beacon];
++ (instancetype)cabWithBeacon:(CLBeacon *)beacon {
+    return [[self alloc] initWithBeacon:beacon];
 }
 
 #pragma mark - NSObject Methods
@@ -39,15 +38,37 @@
 }
 
 - (BOOL)isEqualToCab:(TAXCab *)cab {
-    return [self.companyName isEqualToString:cab.companyName] && [self.beacon isEqual:cab.beacon];
+    return [self.beacon isEqual:cab.beacon];
 }
 
 - (NSUInteger)hash {
-    return [self.companyName hash] ^ [self.beacon hash];
+    return [self.beacon hash];
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"Company Name: %@\nBeacon: %@", self.companyName, self.beacon];
+}
+
+#pragma mark - Helper Method
+
+- (NSString *)companyNameForBeacon:(CLBeacon *)beacon {
+    NSString *companyName;
+    
+    switch ([beacon.minor integerValue]) {
+        case 1661:
+            companyName = @"Music City Taxi Cab";
+            break;
+            
+        case 1662:
+            companyName = @"Allied Cab";
+            break;
+            
+        default: // Checker Cab
+            companyName = @"Nashville Checker Cab";
+            break;
+    }
+    
+    return companyName;
 }
 
 @end

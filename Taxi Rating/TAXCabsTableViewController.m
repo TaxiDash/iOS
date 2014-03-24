@@ -10,6 +10,7 @@
 #import "TAXCab.h"
 #import "TAXDriverViewController.h"
 #import "TAXLocationManagerDelegate.h"
+#import "TAXCabTableViewCell.h"
 
 @interface TAXCabsTableViewController ()
 
@@ -47,8 +48,7 @@
             NSMutableArray *cabs = [NSMutableArray arrayWithCapacity:[beacons count]];
             
             for (CLBeacon *beacon in beacons) {
-                [cabs addObject:[TAXCab cabWithCompanyName:@"Allied"
-                                                 andBeacon:beacon]];
+                [cabs addObject:[TAXCab cabWithBeacon:beacon]];
             }
             
             [cabs sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"beacon"
@@ -123,9 +123,25 @@
     static NSString *CellIdentifier = @"CabCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    TAXCab *cab = self.cabs[indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", cab.companyName, cab.beacon.minor];
+    if ([cell isKindOfClass:[TAXCabTableViewCell class]]) {
+        TAXCabTableViewCell *cabCell = (TAXCabTableViewCell *)cell;
+        
+        TAXCab *cab = self.cabs[indexPath.row];
+        
+        cabCell.cabNumberLabel.text = [cab.beacon.minor stringValue];
+        
+        UIImage *bannerImage;
+        
+        if ([cab.companyName isEqualToString:@"Music City Taxi Cab"]) {
+            bannerImage = [UIImage imageNamed:@"musiccitytaxi.gif"];
+        } else if ([cab.companyName isEqualToString:@"Allied Cab"]) {
+            bannerImage = [UIImage imageNamed:@"allied.jpg"];
+        } else { // Nashville Checker Cab
+            bannerImage = [UIImage imageNamed:@"checkercab.jpg"];
+        }
+        
+        cabCell.bannerImageView.image = bannerImage;
+    }
     
     return cell;
 }

@@ -86,23 +86,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CabCell" textLabel="t5D-zl-ZKk" style="IBUITableViewCellStyleDefault" id="2dN-kS-tIV">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CabCell" id="2dN-kS-tIV" customClass="TAXCabTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2dN-kS-tIV" id="yhj-IV-n16">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t5D-zl-ZKk">
-                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jBX-TD-EWK">
+                                            <rect key="frame" x="16" y="0.0" width="60" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="66T-jN-pA8"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3333" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDL-1z-nER">
+                                            <rect key="frame" x="88" y="11" width="39" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="bDL-1z-nER" firstAttribute="leading" secondItem="jBX-TD-EWK" secondAttribute="trailing" constant="12" id="5NQ-wc-qLz"/>
+                                        <constraint firstItem="jBX-TD-EWK" firstAttribute="top" secondItem="yhj-IV-n16" secondAttribute="top" id="FEU-AY-lQb"/>
+                                        <constraint firstItem="bDL-1z-nER" firstAttribute="centerY" secondItem="jBX-TD-EWK" secondAttribute="centerY" id="I6e-QB-84M"/>
+                                        <constraint firstAttribute="bottom" secondItem="jBX-TD-EWK" secondAttribute="bottom" id="Rtu-Bj-UcN"/>
+                                        <constraint firstItem="jBX-TD-EWK" firstAttribute="leading" secondItem="yhj-IV-n16" secondAttribute="leading" constant="16" id="fMS-Km-FnJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bannerImageView" destination="jBX-TD-EWK" id="VRN-H2-khW"/>
+                                    <outlet property="cabNumberLabel" destination="bDL-1z-nER" id="bUs-GT-NBF"/>
                                     <segue destination="T99-ww-Fym" kind="push" identifier="PushDriver" id="ABO-pg-Haz"/>
                                 </connections>
                             </tableViewCell>

@@ -12,11 +12,11 @@
 
 @interface TAXCab : NSObject
 
-@property (nonatomic, copy) NSString *companyName;
-@property (strong, nonatomic) CLBeacon *beacon;
+@property (strong, nonatomic, readonly) NSString *companyName;
+@property (strong, nonatomic, readonly) CLBeacon *beacon;
 
-- (instancetype)initWithCompanyName:(NSString *)companyName andBeacon:(CLBeacon *)beacon;
+- (instancetype)initWithBeacon:(CLBeacon *)beacon;
 
-+ (instancetype)cabWithCompanyName:(NSString *)companyName andBeacon:(CLBeacon *)beacon;
++ (instancetype)cabWithBeacon:(CLBeacon *)beacon;
 
 @end
