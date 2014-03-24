@@ -39,12 +39,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN3-QD-TTQ">
-                                <rect key="frame" x="134" y="215" width="53" height="44"/>
+                                <rect key="frame" x="66" y="215" width="188" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Ride">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" title="Ride in Progress"/>
+                                <connections>
+                                    <action selector="rideTapped:" destination="T99-ww-Fym" eventType="touchUpInside" id="Mi3-sC-MPZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -52,25 +56,21 @@
                             <constraint firstItem="IEN-KS-eaP" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="13" id="9aW-qF-dPX"/>
                             <constraint firstItem="G17-2M-6cL" firstAttribute="leading" secondItem="IEN-KS-eaP" secondAttribute="trailing" constant="8" id="EEd-2O-7Wt"/>
                             <constraint firstItem="G17-2M-6cL" firstAttribute="top" secondItem="Ra6-mW-3jT" secondAttribute="bottom" constant="8" id="FjO-dc-4cJ"/>
-                            <constraint firstAttribute="trailing" secondItem="BN3-QD-TTQ" secondAttribute="trailing" constant="133" id="Fqa-YZ-Ihx"/>
+                            <constraint firstAttribute="trailing" secondItem="BN3-QD-TTQ" secondAttribute="trailing" constant="66" id="Fqa-YZ-Ihx"/>
                             <constraint firstItem="Ra6-mW-3jT" firstAttribute="leading" secondItem="IEN-KS-eaP" secondAttribute="trailing" constant="8" id="G6u-zt-jV4"/>
                             <constraint firstItem="BN3-QD-TTQ" firstAttribute="top" secondItem="G17-2M-6cL" secondAttribute="bottom" constant="88" id="G7S-bW-KIC"/>
                             <constraint firstItem="IEN-KS-eaP" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" constant="20" id="R37-yh-laF"/>
-                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" constant="134" id="UJd-wQ-jwy"/>
+                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" constant="66" id="UJd-wQ-jwy"/>
                             <constraint firstItem="Ra6-mW-3jT" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="13" id="XzS-qF-O7x"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eFB-bX-cv9">
-                        <barButtonItem key="rightBarButtonItem" title="Rate" id="Yj1-id-GiC">
-                            <connections>
-                                <segue destination="79a-oo-jxA" kind="modal" identifier="PresentRate" id="g6u-dT-K3R"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eFB-bX-cv9"/>
                     <connections>
                         <outlet property="imageView" destination="IEN-KS-eaP" id="3IT-5C-jxk"/>
                         <outlet property="ratingLabel" destination="Ra6-mW-3jT" id="MQy-kA-gFF"/>
+                        <outlet property="rideButton" destination="BN3-QD-TTQ" id="D2P-AV-big"/>
                         <outlet property="validLabel" destination="G17-2M-6cL" id="ymt-Ku-gOq"/>
+                        <segue destination="79a-oo-jxA" kind="modal" identifier="PresentRate" id="1Qf-Ea-Cg2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8q-xt-wVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -172,9 +172,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IoX-Yj-Yy6">
-                                <rect key="frame" x="29" y="79" width="46" height="30"/>
+                                <rect key="frame" x="35" y="79" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="1 star">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -182,9 +182,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OB-aj-sZW">
-                                <rect key="frame" x="83" y="79" width="46" height="30"/>
+                                <rect key="frame" x="82" y="79" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="2 stars">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -192,9 +192,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9o-4s-UmI">
-                                <rect key="frame" x="137" y="79" width="46" height="30"/>
+                                <rect key="frame" x="137" y="79" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="3 stars">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -202,9 +202,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-GX-Kbv">
-                                <rect key="frame" x="191" y="79" width="46" height="30"/>
+                                <rect key="frame" x="192" y="79" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="4 stars">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -212,9 +212,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PqU-d7-mI7">
-                                <rect key="frame" x="245" y="79" width="46" height="30"/>
+                                <rect key="frame" x="247" y="79" width="47" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="5 stars">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -243,7 +243,7 @@
                             <constraint firstItem="PqU-d7-mI7" firstAttribute="leading" secondItem="FPK-GX-Kbv" secondAttribute="trailing" constant="8" id="jRo-xL-zFM"/>
                             <constraint firstItem="4OB-aj-sZW" firstAttribute="leading" secondItem="IoX-Yj-Yy6" secondAttribute="trailing" constant="8" id="pcU-ek-qDH"/>
                             <constraint firstItem="IoX-Yj-Yy6" firstAttribute="top" secondItem="PZl-DU-xCB" secondAttribute="bottom" constant="15" id="rFS-Yp-u4g"/>
-                            <constraint firstItem="IoX-Yj-Yy6" firstAttribute="leading" secondItem="Exn-Z3-B6x" secondAttribute="leading" constant="29" id="w6S-l8-hwo"/>
+                            <constraint firstItem="IoX-Yj-Yy6" firstAttribute="leading" secondItem="Exn-Z3-B6x" secondAttribute="leading" constant="35" id="w6S-l8-hwo"/>
                             <constraint firstItem="V9o-4s-UmI" firstAttribute="top" secondItem="PZl-DU-xCB" secondAttribute="bottom" constant="15" id="yOH-a4-q9d"/>
                         </constraints>
                     </view>

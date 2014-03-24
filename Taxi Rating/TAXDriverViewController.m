@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *validLabel;
+@property (weak, nonatomic) IBOutlet UIButton *rideButton;
 
 @end
 
@@ -77,10 +78,38 @@
 
 #pragma mark - IB Actions
 
+- (IBAction)rideTapped:(UIButton *)sender {
+    if ([sender.titleLabel.text isEqualToString:@"Ride"]) {
+        sender.enabled = NO;
+        
+        // TODO - Get rid of this timer, and end the ride only when the user
+        // has traveled a sufficient distance.
+        [NSTimer scheduledTimerWithTimeInterval:5.0
+                                         target:self
+                                       selector:@selector(endRide)
+                                       userInfo:nil
+                                        repeats:NO];
+    } else if ([sender.titleLabel.text isEqualToString:@"Rate"]) {
+        [self performSegueWithIdentifier:@"PresentRate"
+                                  sender:sender];
+    }
+}
+
 // Unwind segue
-- (IBAction)userDidRate:(UIStoryboardSegue *)segue {}
+- (IBAction)userDidRate:(UIStoryboardSegue *)segue {
+    [self.rideButton setTitle:@"Ride"
+                     forState:UIControlStateNormal];
+}
 
 // Unwind segue
 - (IBAction)userDidCancelRating:(UIStoryboardSegue *)segue {}
+
+#pragma mark - Helper Method
+
+- (void)endRide {
+    [self.rideButton setTitle:@"Rate"
+                     forState:UIControlStateNormal];
+    self.rideButton.enabled = YES;
+}
 
 @end
