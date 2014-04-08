@@ -326,7 +326,7 @@
                     <navigationItem key="navigationItem" title="Destination" id="wDy-V2-3lw">
                         <barButtonItem key="rightBarButtonItem" title="Route" id="PAK-KN-Suw">
                             <connections>
-                                <segue destination="Zrt-pO-gZf" kind="push" id="Wk0-yX-YvP"/>
+                                <segue destination="Zrt-pO-gZf" kind="push" identifier="PushRide" id="Wk0-yX-YvP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

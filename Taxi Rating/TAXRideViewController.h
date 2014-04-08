@@ -10,4 +10,6 @@
 
 @interface TAXRideViewController : UIViewController
 
+@property (nonatomic, copy) NSString *destination;
+
 @end

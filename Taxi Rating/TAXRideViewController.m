@@ -22,6 +22,29 @@
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
+    
+    MKMapItem *startItem = [MKMapItem mapItemForCurrentLocation];
+    
+    MKLocalSearchRequest *localSearchRequest = [[MKLocalSearchRequest alloc] init];
+    localSearchRequest.naturalLanguageQuery = self.destination;
+    // TODO - See what the radius is of Nashville in meters
+    localSearchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 5000, 5000);
+    
+    MKLocalSearch *localSearch = [[MKLocalSearch alloc] initWithRequest:localSearchRequest];
+    
+    [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+        if (!error) {
+            NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:[response.mapItems count]];
+            
+            for (MKMapItem *item in response.mapItems) {
+                [placemarks addObject:item.placemark];
+                
+                [self.mapView removeAnnotations:self.mapView.annotations];
+                [self.mapView showAnnotations:placemarks
+                                     animated:YES];
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
