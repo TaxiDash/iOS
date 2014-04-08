@@ -48,6 +48,7 @@
                                 <state key="disabled" title="Ride in Progress"/>
                                 <connections>
                                     <action selector="rideTapped:" destination="T99-ww-Fym" eventType="touchUpInside" id="Mi3-sC-MPZ"/>
+                                    <segue destination="EOa-x9-0ti" kind="modal" identifier="PresentRide" id="NOG-F8-HnX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -290,6 +291,104 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFC-EH-35N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1750" y="131"/>
+        </scene>
+        <!--Destination View Controller - Destination-->
+        <scene sceneID="d9x-Va-YNU">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="s6i-C4-GD6" customClass="TAXDestinationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pVQ-lZ-GxU"/>
+                        <viewControllerLayoutGuide type="bottom" id="IoJ-5D-Pon"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oUo-OW-qI6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="6iG-gt-bsC">
+                                <rect key="frame" x="0.0" y="84" width="320" height="220"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="RhK-UH-eD2"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="route"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6iG-gt-bsC" firstAttribute="top" secondItem="pVQ-lZ-GxU" secondAttribute="bottom" constant="20" id="cbX-nA-Coh"/>
+                            <constraint firstItem="6iG-gt-bsC" firstAttribute="leading" secondItem="oUo-OW-qI6" secondAttribute="leading" id="hzP-Kf-Bib"/>
+                            <constraint firstAttribute="trailing" secondItem="6iG-gt-bsC" secondAttribute="trailing" id="znX-gJ-nkb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Destination" id="wDy-V2-3lw">
+                        <barButtonItem key="rightBarButtonItem" title="Route" id="PAK-KN-Suw">
+                            <connections>
+                                <segue destination="Zrt-pO-gZf" kind="push" id="Wk0-yX-YvP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="6iG-gt-bsC" id="xWv-mB-bSh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSn-Gs-Ec8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2180" y="825"/>
+        </scene>
+        <!--Ride View Controller - Ride-->
+        <scene sceneID="byG-S6-kMp">
+            <objects>
+                <viewController id="Zrt-pO-gZf" customClass="TAXRideViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EcZ-kS-RP5"/>
+                        <viewControllerLayoutGuide type="bottom" id="pmJ-5m-wgX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nth-CM-b5n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Sy-PG-Vgg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ride" id="McO-UF-e22">
+                        <barButtonItem key="rightBarButtonItem" title="End" id="9dI-vB-GYD">
+                            <connections>
+                                <action selector="endTapped:" destination="Zrt-pO-gZf" id="YKm-62-NZo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="3Sy-PG-Vgg" id="mVk-z3-DOe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgc-1o-4wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2609" y="825"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1mE-8L-6rD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EOa-x9-0ti" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0mA-Qv-3Hd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s6i-C4-GD6" kind="relationship" relationship="rootViewController" id="ffS-6i-v0D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuN-F6-d0Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1746" y="825"/>
         </scene>
     </scenes>
     <resources>

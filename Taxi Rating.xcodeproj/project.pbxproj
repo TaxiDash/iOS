@@ -34,6 +34,9 @@
 		2DBF4C5718E0277800645B84 /* brian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DBF4C5618E0277800645B84 /* brian.jpg */; };
 		2DCA2F9818D1929000AA9305 /* TAXCabsTVCSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */; };
 		2DD8447818BDE41900B4296F /* TAXCabsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */; };
+		2DE675F318F3E7420034330F /* TAXDestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE675F218F3E7420034330F /* TAXDestinationViewController.m */; };
+		2DE675F618F3EDFF0034330F /* TAXRideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE675F518F3EDFF0034330F /* TAXRideViewController.m */; };
+		2DE675F818F3EE370034330F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE675F718F3EE370034330F /* MapKit.framework */; };
 		DC533E4D4A34401C93AA2B10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C17B09015E540D8B39948E0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +92,11 @@
 		2DCA2F9718D1929000AA9305 /* TAXCabsTVCSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTVCSpec.m; sourceTree = "<group>"; };
 		2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXCabsTableViewController.h; sourceTree = "<group>"; };
 		2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXCabsTableViewController.m; sourceTree = "<group>"; };
+		2DE675F118F3E7420034330F /* TAXDestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXDestinationViewController.h; sourceTree = "<group>"; };
+		2DE675F218F3E7420034330F /* TAXDestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXDestinationViewController.m; sourceTree = "<group>"; };
+		2DE675F418F3EDFF0034330F /* TAXRideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAXRideViewController.h; sourceTree = "<group>"; };
+		2DE675F518F3EDFF0034330F /* TAXRideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAXRideViewController.m; sourceTree = "<group>"; };
+		2DE675F718F3EE370034330F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		362E713F3B3D4C32925048E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		6FD79EF8C66649C185165698 /* libPods-Taxi RatingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Taxi RatingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,6 +108,7 @@
 			files = (
 				2D9F3EE118A2455F00AA3F6C /* CoreGraphics.framework in Frameworks */,
 				2D9F3EE318A2455F00AA3F6C /* UIKit.framework in Frameworks */,
+				2DE675F818F3EE370034330F /* MapKit.framework in Frameworks */,
 				2D9F3EDF18A2455F00AA3F6C /* Foundation.framework in Frameworks */,
 				DC533E4D4A34401C93AA2B10 /* libPods.a in Frameworks */,
 			);
@@ -148,6 +157,10 @@
 				2D9A0B9518B4969500660A1A /* TAXRateViewController.m */,
 				2DD8447618BDE41900B4296F /* TAXCabsTableViewController.h */,
 				2DD8447718BDE41900B4296F /* TAXCabsTableViewController.m */,
+				2DE675F118F3E7420034330F /* TAXDestinationViewController.h */,
+				2DE675F218F3E7420034330F /* TAXDestinationViewController.m */,
+				2DE675F418F3EDFF0034330F /* TAXRideViewController.h */,
+				2DE675F518F3EDFF0034330F /* TAXRideViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -187,6 +200,7 @@
 		2D9F3EDD18A2455F00AA3F6C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DE675F718F3EE370034330F /* MapKit.framework */,
 				2D9F3EDE18A2455F00AA3F6C /* Foundation.framework */,
 				2D9F3EE018A2455F00AA3F6C /* CoreGraphics.framework */,
 				2D9F3EE218A2455F00AA3F6C /* UIKit.framework */,
@@ -310,6 +324,11 @@
 				TargetAttributes = {
 					2D9F3EDA18A2455F00AA3F6C = {
 						DevelopmentTeam = 7MA825R8KR;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2D9F3EFB18A2455F00AA3F6C = {
 						TestTargetID = 2D9F3EDA18A2455F00AA3F6C;
@@ -438,7 +457,9 @@
 				2D14868218BDF7A000F898FA /* TAXCab.m in Sources */,
 				2D9F3EF518A2455F00AA3F6C /* TAXDriverViewController.m in Sources */,
 				2D5CE56F18BF236D0092A31C /* TAXLocationManagerDelegate.m in Sources */,
+				2DE675F618F3EDFF0034330F /* TAXRideViewController.m in Sources */,
 				2DBF4C5418E01E9700645B84 /* TAXCabTableViewCell.m in Sources */,
+				2DE675F318F3E7420034330F /* TAXDestinationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

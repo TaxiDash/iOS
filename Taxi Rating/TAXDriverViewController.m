@@ -79,7 +79,7 @@
 #pragma mark - IB Actions
 
 - (IBAction)rideTapped:(UIButton *)sender {
-    if ([sender.titleLabel.text isEqualToString:@"Ride"]) {
+    /*if ([sender.titleLabel.text isEqualToString:@"Ride"]) {
         sender.enabled = NO;
         
         // TODO - Get rid of this timer, and end the ride only when the user
@@ -92,7 +92,7 @@
     } else if ([sender.titleLabel.text isEqualToString:@"Rate"]) {
         [self performSegueWithIdentifier:@"PresentRate"
                                   sender:sender];
-    }
+    }*/
 }
 
 // Unwind segue
