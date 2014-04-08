@@ -313,7 +313,7 @@
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="route"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -324,7 +324,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Destination" id="wDy-V2-3lw">
-                        <barButtonItem key="rightBarButtonItem" title="Route" id="PAK-KN-Suw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="PAK-KN-Suw">
                             <connections>
                                 <segue destination="Zrt-pO-gZf" kind="push" identifier="PushRide" id="Wk0-yX-YvP"/>
                             </connections>
@@ -353,18 +353,22 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Sy-PG-Vgg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Zrt-pO-gZf" id="Xpo-CC-Eff"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ride" id="McO-UF-e22">
-                        <barButtonItem key="rightBarButtonItem" title="End" id="9dI-vB-GYD">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Route" id="9dI-vB-GYD">
                             <connections>
-                                <action selector="endTapped:" destination="Zrt-pO-gZf" id="YKm-62-NZo"/>
+                                <action selector="actionButtonTapped:" destination="Zrt-pO-gZf" id="b0o-73-o2u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionBarButtonItem" destination="9dI-vB-GYD" id="niJ-z3-oos"/>
                         <outlet property="mapView" destination="3Sy-PG-Vgg" id="mVk-z3-DOe"/>
                     </connections>
                 </viewController>

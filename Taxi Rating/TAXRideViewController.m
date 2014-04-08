@@ -10,9 +10,12 @@
 
 @import MapKit;
 
-@interface TAXRideViewController ()
+@interface TAXRideViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionBarButtonItem;
+
+@property (nonatomic) BOOL mapHasLoaded;
 
 @end
 
@@ -23,28 +26,7 @@
     
     self.navigationItem.hidesBackButton = YES;
     
-    MKMapItem *startItem = [MKMapItem mapItemForCurrentLocation];
-    
-    MKLocalSearchRequest *localSearchRequest = [[MKLocalSearchRequest alloc] init];
-    localSearchRequest.naturalLanguageQuery = self.destination;
-    // TODO - See what the radius is of Nashville in meters
-    localSearchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 5000, 5000);
-    
-    MKLocalSearch *localSearch = [[MKLocalSearch alloc] initWithRequest:localSearchRequest];
-    
-    [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-        if (!error) {
-            NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:[response.mapItems count]];
-            
-            for (MKMapItem *item in response.mapItems) {
-                [placemarks addObject:item.placemark];
-                
-                [self.mapView removeAnnotations:self.mapView.annotations];
-                [self.mapView showAnnotations:placemarks
-                                     animated:YES];
-            }
-        }
-    }];
+    self.mapHasLoaded = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,20 +37,93 @@
 
 #pragma mark - IB Action
 
-- (IBAction)endTapped:(UIBarButtonItem *)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES
-                                                      completion:nil];
+- (IBAction)actionButtonTapped:(UIBarButtonItem *)sender {
+    if ([sender.title isEqualToString:@"Route"]) {
+        sender.title = @"End";
+        
+        MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+        directionsRequest.source = [MKMapItem mapItemForCurrentLocation];
+        directionsRequest.destination = [[MKMapItem alloc] initWithPlacemark:[self.mapView.selectedAnnotations firstObject]];
+        
+        MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+        
+        [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+            if (!error) {
+                MKRoute *route = [response.routes firstObject];
+                
+                [self.mapView addOverlay:route.polyline
+                                   level:MKOverlayLevelAboveRoads];
+                [self.mapView setVisibleMapRect:route.polyline.boundingMapRect
+                                    edgePadding:UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)
+                                       animated:YES];
+                
+                // Do something with estimated time and distance and calculate fare
+            } else {
+                NSLog(@"Directions Error: %@", error);
+            }
+        }];
+    } else { // End
+        [self.presentingViewController dismissViewControllerAnimated:YES
+                                                          completion:nil];
+    }
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Map View Delegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    self.actionBarButtonItem.enabled = YES;
 }
-*/
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    if ([self.actionBarButtonItem.title isEqualToString:@"Route"]) {
+        self.actionBarButtonItem.enabled = NO;
+    }
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    renderer.strokeColor = [UIColor blueColor];
+    renderer.lineWidth = 5.0;
+    
+    return renderer;
+}
+
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    if ([views count] == 1) {
+        MKAnnotationView *annotationView = [views firstObject];
+        
+        if (![annotationView.annotation isEqual:self.mapView.userLocation]) {
+            [mapView selectAnnotation:annotationView.annotation
+                             animated:YES];
+        }
+    }
+}
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    if (!self.mapHasLoaded) {
+        MKLocalSearchRequest *localSearchRequest = [[MKLocalSearchRequest alloc] init];
+        localSearchRequest.naturalLanguageQuery = self.destination;
+        // TODO - See what the radius is of Nashville in meters
+        localSearchRequest.region = MKCoordinateRegionMakeWithDistance(self.mapView.userLocation.coordinate, 5000, 5000);
+        
+        MKLocalSearch *localSearch = [[MKLocalSearch alloc] initWithRequest:localSearchRequest];
+        
+        [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
+            if (!error) {
+                NSMutableArray *placemarks = [NSMutableArray arrayWithCapacity:[response.mapItems count]];
+                
+                for (MKMapItem *item in response.mapItems) {
+                    [placemarks addObject:item.placemark];
+                }
+                
+                [self.mapView removeAnnotations:self.mapView.annotations];
+                [self.mapView showAnnotations:placemarks
+                                     animated:YES];
+                
+                self.mapHasLoaded = YES;
+            }
+        }];
+    }
+}
 
 @end
