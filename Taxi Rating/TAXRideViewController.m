@@ -24,8 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.hidesBackButton = YES;
-    
     self.mapHasLoaded = NO;
 }
 
@@ -49,6 +47,8 @@
         
         [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
             if (!error) {
+                self.navigationItem.hidesBackButton = YES;
+                
                 MKRoute *route = [response.routes firstObject];
                 
                 [self.mapView addOverlay:route.polyline
