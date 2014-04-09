@@ -11,5 +11,6 @@
 @interface TAXRideViewController : UIViewController
 
 @property (nonatomic, copy) NSString *destination;
+@property (nonatomic, assign) NSUInteger numberOfAdditionalPassengers;
 
 @end
