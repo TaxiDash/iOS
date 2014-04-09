@@ -203,16 +203,20 @@
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
-    if (!self.initialAnnotationSelected && [views count] == 1) {
-        MKAnnotationView *annotationView = [views firstObject];
-        
-        if (![annotationView.annotation isEqual:self.mapView.userLocation]) {
-            [mapView selectAnnotation:annotationView.annotation
-                             animated:YES];
+    if (!self.initialAnnotationSelected) {
+        if ([views count] == 1) {
+            MKAnnotationView *annotationView = [views firstObject];
+            
+            if (![annotationView.annotation isEqual:self.mapView.userLocation]) {
+                [mapView selectAnnotation:annotationView.annotation
+                                 animated:YES];
+                
+                self.initialAnnotationSelected = YES;
+            }
+        } else {
+            self.initialAnnotationSelected = YES;
         }
     }
-    
-    self.initialAnnotationSelected = YES;
 }
 
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
