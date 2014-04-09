@@ -126,12 +126,12 @@
                 // Do something with estimated time and distance and calculate fare
                 CLLocationDistance distanceInMiles = [self distanceInMilesForMeters:route.distance];
                 
-                self.distanceLabel.hidden = NO;
-                self.costLabel.hidden = NO;
-                
                 self.distanceLabel.text = [NSString stringWithFormat:@"%.2f mi", distanceInMiles];
                 self.costLabel.text = [NSString stringWithFormat:@"$%.2f", [self fareForDirectionsResponse:response
                                                                                                  withRoute:route]];
+                
+                self.distanceLabel.hidden = NO;
+                self.costLabel.hidden = NO;
             } else {
                 NSLog(@"Directions Error: %@", error);
             }
@@ -185,7 +185,9 @@
 #pragma mark - Map View Delegate
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    self.actionBarButtonItem.enabled = YES;
+    if (![view.annotation isEqual:self.mapView.userLocation]) {
+        self.actionBarButtonItem.enabled = YES;
+    }
 }
 
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
