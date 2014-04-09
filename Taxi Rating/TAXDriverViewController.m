@@ -34,7 +34,7 @@
         
         self.title = [NSString stringWithFormat:@"%@ %@", driver.firstName, driver.lastName];
         self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", driver.averageRating];
-        self.validLabel.text = driver.isValid ? @"Valid" : @"Not Valid";
+        self.validLabel.text = driver.isValid ? @"Valid License" : @"Invalid License";
     }
 }
 

@@ -17,58 +17,64 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brian.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IEN-KS-eaP">
-                                <rect key="frame" x="20" y="77" width="100" height="100"/>
+                                <rect key="frame" x="88" y="80" width="144" height="189"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="ham-ba-Sr9"/>
-                                    <constraint firstAttribute="height" constant="100" id="qe2-wc-4Ae"/>
+                                    <constraint firstAttribute="width" constant="144" id="ham-ba-Sr9"/>
+                                    <constraint firstAttribute="height" constant="189" id="qe2-wc-4Ae"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="172" placeholderIntrinsicHeight="21" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-mW-3jT">
-                                <rect key="frame" x="128" y="77" width="172" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-mW-3jT">
+                                <rect key="frame" x="46" y="339" width="84" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="172" placeholderIntrinsicHeight="21" text="Valid" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-2M-6cL">
-                                <rect key="frame" x="128" y="106" width="172" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="115" placeholderIntrinsicHeight="24" text="Valid License" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-2M-6cL">
+                                <rect key="frame" x="153" y="295" width="115" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN3-QD-TTQ">
-                                <rect key="frame" x="66" y="215" width="188" height="44"/>
+                                <rect key="frame" x="103" y="388" width="114" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Ride">
+                                <state key="normal" title="Start Ride">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" title="Ride in Progress"/>
                                 <connections>
                                     <action selector="rideTapped:" destination="T99-ww-Fym" eventType="touchUpInside" id="Mi3-sC-MPZ"/>
                                     <segue destination="EOa-x9-0ti" kind="modal" identifier="PresentRide" id="NOG-F8-HnX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="69" placeholderIntrinsicHeight="60" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-69-YZ6">
+                                <rect key="frame" x="54" y="280" width="69" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IEN-KS-eaP" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="13" id="9aW-qF-dPX"/>
-                            <constraint firstItem="G17-2M-6cL" firstAttribute="leading" secondItem="IEN-KS-eaP" secondAttribute="trailing" constant="8" id="EEd-2O-7Wt"/>
-                            <constraint firstItem="G17-2M-6cL" firstAttribute="top" secondItem="Ra6-mW-3jT" secondAttribute="bottom" constant="8" id="FjO-dc-4cJ"/>
-                            <constraint firstAttribute="trailing" secondItem="BN3-QD-TTQ" secondAttribute="trailing" constant="66" id="Fqa-YZ-Ihx"/>
-                            <constraint firstItem="Ra6-mW-3jT" firstAttribute="leading" secondItem="IEN-KS-eaP" secondAttribute="trailing" constant="8" id="G6u-zt-jV4"/>
-                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="top" secondItem="G17-2M-6cL" secondAttribute="bottom" constant="88" id="G7S-bW-KIC"/>
-                            <constraint firstItem="IEN-KS-eaP" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" constant="20" id="R37-yh-laF"/>
-                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" constant="66" id="UJd-wQ-jwy"/>
-                            <constraint firstItem="Ra6-mW-3jT" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="13" id="XzS-qF-O7x"/>
+                            <constraint firstItem="G17-2M-6cL" firstAttribute="top" secondItem="IEN-KS-eaP" secondAttribute="bottom" constant="26" id="1f0-L3-Xrh"/>
+                            <constraint firstItem="HhX-69-YZ6" firstAttribute="centerX" secondItem="Ra6-mW-3jT" secondAttribute="centerX" id="4ZX-Zv-5QB"/>
+                            <constraint firstItem="IEN-KS-eaP" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="16" id="9aW-qF-dPX"/>
+                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="centerX" secondItem="IEN-KS-eaP" secondAttribute="centerX" id="B3c-zg-cfG"/>
+                            <constraint firstItem="HhX-69-YZ6" firstAttribute="top" secondItem="IEN-KS-eaP" secondAttribute="bottom" constant="11" id="SP0-EM-8Ol"/>
+                            <constraint firstItem="Ra6-mW-3jT" firstAttribute="top" secondItem="HhX-69-YZ6" secondAttribute="bottom" constant="-1" id="XAi-nV-v7G"/>
+                            <constraint firstItem="BN3-QD-TTQ" firstAttribute="top" secondItem="Ra6-mW-3jT" secondAttribute="bottom" constant="32" id="arp-nM-IQh"/>
+                            <constraint firstItem="IEN-KS-eaP" firstAttribute="leading" secondItem="Ra6-mW-3jT" secondAttribute="leading" constant="42" id="gwo-zb-6dt"/>
+                            <constraint firstItem="IEN-KS-eaP" firstAttribute="trailing" secondItem="G17-2M-6cL" secondAttribute="trailing" constant="-36" id="hS0-30-GDJ"/>
+                            <constraint firstAttribute="centerX" secondItem="IEN-KS-eaP" secondAttribute="centerX" id="wtb-rG-CBn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eFB-bX-cv9"/>
                     <connections>
                         <outlet property="imageView" destination="IEN-KS-eaP" id="3IT-5C-jxk"/>
-                        <outlet property="ratingLabel" destination="Ra6-mW-3jT" id="MQy-kA-gFF"/>
+                        <outlet property="ratingLabel" destination="HhX-69-YZ6" id="95S-o8-xxd"/>
                         <outlet property="rideButton" destination="BN3-QD-TTQ" id="D2P-AV-big"/>
                         <outlet property="validLabel" destination="G17-2M-6cL" id="ymt-Ku-gOq"/>
                         <segue destination="79a-oo-jxA" kind="modal" identifier="PresentRate" id="1Qf-Ea-Cg2"/>
