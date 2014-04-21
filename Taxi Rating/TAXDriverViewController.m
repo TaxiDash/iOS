@@ -47,8 +47,11 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
     self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
     
     if (self.driver) {
-        NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.driver.beacon.minor]
+        NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@.json", self.driver.beacon.minor]
                                  relativeToURL:[NSURL URLWithString:kDriverImageURLString]];
+        
+        /*[self.imageView setImageWithURL:imageURL
+                       placeholderImage:nil];*/
         
         [self.imageView setImageWithURL:imageURL
                        placeholderImage:nil];

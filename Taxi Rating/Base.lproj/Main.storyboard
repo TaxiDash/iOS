@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brian.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IEN-KS-eaP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IEN-KS-eaP">
                                 <rect key="frame" x="88" y="100" width="144" height="189"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
@@ -531,7 +531,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brian.jpg" width="533" height="800"/>
         <image name="nashville" width="321" height="502"/>
     </resources>
     <color key="tintColor" red="0.3411764706" green="0.76862745099999996" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
