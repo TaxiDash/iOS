@@ -165,4 +165,39 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
     return task;
 }
 
+- (NSURLSessionDataTask *)postRideWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate endCoordinate:(CLLocationCoordinate2D)endCoordinate driverID:(NSString *)driverID ratingID:(NSString *)ratingID estimatedFare:(CGFloat)estimatedFare actualFare:(CGFloat)actualFare andCompletionBlock:(void (^)(BOOL))completionBlock {
+    NSDictionary *params = @{@"ride": @{@"start_latitude": @(startCoordinate.latitude),
+                                        @"start_longitude": @(startCoordinate.longitude),
+                                        @"end_latitude": @(endCoordinate.latitude),
+                                        @"end_longitude": @(endCoordinate.longitude),
+                                        @"rider_id": [[UIDevice currentDevice].identifierForVendor UUIDString],
+                                        @"driver_id": driverID,
+                                        @"rating_id": ratingID,
+                                        @"estimated_fare": @(estimatedFare),
+                                        @"actual_fare": @(actualFare)}};
+    
+    NSURLSessionDataTask *task = [self POST:@"rides.json"
+                                 parameters:params
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        
+                                        if (httpResponse.statusCode == 201) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completionBlock(YES);
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                completionBlock(NO);
+                                            });
+                                            
+                                            NSLog(@"Received: %@", responseObject);
+                                            NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            completionBlock(NO);
+                                        });
+                                    }];
+}
+
 @end

@@ -27,18 +27,6 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 
 @implementation TAXDriverViewController
 
-#pragma mark - Custom Setter
-
-- (void)setDriver:(TAXDriver *)driver {
-    if (![_driver isEqual:driver]) {
-        _driver = driver;
-        
-        self.title = [NSString stringWithFormat:@"%@ %@", driver.firstName, driver.lastName];
-        self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", driver.averageRating];
-        self.validLabel.text = driver.isValid ? @"Valid License" : @"Invalid License";
-    }
-}
-
 #pragma mark - View Controller Lifecycle
 
 - (void)viewDidLoad {
@@ -52,6 +40,10 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
         
         [self.imageView setImageWithURL:imageURL
                        placeholderImage:nil];
+        
+        self.title = [NSString stringWithFormat:@"%@ %@", self.driver.firstName, self.driver.lastName];
+        self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", self.driver.averageRating];
+        self.validLabel.text = self.driver.isValid ? @"Valid License" : @"Invalid License";
     }
 }
 
