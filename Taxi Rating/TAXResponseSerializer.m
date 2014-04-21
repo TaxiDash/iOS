@@ -32,7 +32,7 @@
                                         permitExpirationDate:driverResponseDictionary[@"permit_expiration_date"]
                                                 permitNumber:[driverResponseDictionary[@"permit_number"] integerValue]
                                                       status:driverResponseDictionary[@"status"]
-                                                 companyName:driverResponseDictionary[@"company_name"]
+                                                 companyName:driverResponseDictionary[@"company"][@"name"]
                                       physicalExpirationDate:driverResponseDictionary[@"physical_expiration_date"]
                                                        valid:driverResponseDictionary[@"valid"]
                                                       beacon:nil

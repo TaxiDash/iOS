@@ -111,7 +111,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="30" text="Allied Cabs #342" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDL-1z-nER">
-                                            <rect key="frame" x="90" y="11" width="180" height="30"/>
+                                            <rect key="frame" x="90" y="11" width="197" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
@@ -153,6 +153,7 @@
                                         <constraint firstItem="bDL-1z-nER" firstAttribute="leading" secondItem="6Qk-Pr-AXJ" secondAttribute="trailing" constant="16" id="CEU-A6-sOc"/>
                                         <constraint firstItem="bDL-1z-nER" firstAttribute="top" secondItem="yhj-IV-n16" secondAttribute="top" constant="11" id="CLd-33-id4"/>
                                         <constraint firstItem="kkD-8e-3sD" firstAttribute="leading" secondItem="bDL-1z-nER" secondAttribute="leading" id="P3I-yV-nyy"/>
+                                        <constraint firstAttribute="trailing" secondItem="bDL-1z-nER" secondAttribute="trailing" id="YDv-Vb-UR9"/>
                                         <constraint firstItem="kkD-8e-3sD" firstAttribute="top" secondItem="bDL-1z-nER" secondAttribute="bottom" constant="-1" id="csR-tG-tKH"/>
                                     </constraints>
                                 </tableViewCellContentView>
