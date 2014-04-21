@@ -21,7 +21,11 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *validLabel;
-@property (weak, nonatomic) IBOutlet UIButton *rideButton;
+
+// TODO - This is an absolutely terrible property and terrible way of getting the user
+// back to the list of cabs after rating. However, I'm pressed for time at the moment.
+// This should be removed in the future.
+@property (nonatomic, assign) BOOL userDidRate;
 
 @end
 
@@ -31,6 +35,8 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.userDidRate = NO;
     
     self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
     
@@ -44,6 +50,14 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
         self.title = [NSString stringWithFormat:@"%@ %@", self.driver.firstName, self.driver.lastName];
         self.ratingLabel.text = [NSString stringWithFormat:@"%.1f", self.driver.averageRating];
         self.validLabel.text = self.driver.isValid ? @"Valid License" : @"Invalid License";
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.userDidRate) {
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -66,41 +80,15 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 
 #pragma mark - IB Actions
 
-- (IBAction)rideTapped:(UIButton *)sender {
-    /*if ([sender.titleLabel.text isEqualToString:@"Ride"]) {
-        sender.enabled = NO;
-        
-        // TODO - Get rid of this timer, and end the ride only when the user
-        // has traveled a sufficient distance.
-        [NSTimer scheduledTimerWithTimeInterval:5.0
-                                         target:self
-                                       selector:@selector(endRide)
-                                       userInfo:nil
-                                        repeats:NO];
-    } else if ([sender.titleLabel.text isEqualToString:@"Rate"]) {
-        [self performSegueWithIdentifier:@"PresentRate"
-                                  sender:sender];
-    }*/
-}
-
-// Unwind segue
-- (IBAction)userDidRate:(UIStoryboardSegue *)segue {
-    [self.rideButton setTitle:@"Ride"
-                     forState:UIControlStateNormal];
-}
-
 // Unwind segue
 - (IBAction)userDidCancelRating:(UIStoryboardSegue *)segue {}
 
 // Unwind segue
 - (IBAction)userDidCancelRide:(UIStoryboardSegue *)segue {}
 
-#pragma mark - Helper Method
-
-- (void)endRide {
-    [self.rideButton setTitle:@"Rate"
-                     forState:UIControlStateNormal];
-    self.rideButton.enabled = YES;
+// Unwind segue
+- (IBAction)userDidRate:(UIStoryboardSegue *)segue {
+    self.userDidRate = YES;
 }
 
 @end

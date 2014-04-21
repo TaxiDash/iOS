@@ -198,6 +198,8 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
                                             completionBlock(NO);
                                         });
                                     }];
+    
+    return task;
 }
 
 @end
