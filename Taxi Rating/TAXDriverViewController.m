@@ -46,6 +46,8 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+    
     if (self.beacon) {
         [[TAXClient sharedClient] fetchDriverWithBeaconID:self.beacon.minor
                                       withCompletionBlock:^(BOOL success, TAXDriver *driver) {

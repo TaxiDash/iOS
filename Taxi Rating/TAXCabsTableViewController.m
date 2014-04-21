@@ -11,6 +11,7 @@
 #import "TAXDriverViewController.h"
 #import "TAXLocationManagerDelegate.h"
 #import "TAXCabTableViewCell.h"
+#import "TAXRatingView.h"
 
 @interface TAXCabsTableViewController ()
 
@@ -113,6 +114,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table View Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70.0;
+}
+
 #pragma mark - Table View Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -128,9 +135,9 @@
         
         TAXCab *cab = self.cabs[indexPath.row];
         
-        cabCell.cabNumberLabel.text = [cab.beacon.minor stringValue];
+        cabCell.ratingView.rating = TAXRatingHighRating;
         
-        UIImage *bannerImage;
+        /*UIImage *bannerImage;
         
         if ([cab.companyName isEqualToString:@"Music City Taxi Cab"]) {
             bannerImage = [UIImage imageNamed:@"musiccitytaxi.gif"];
@@ -140,7 +147,9 @@
             bannerImage = [UIImage imageNamed:@"checkercab.jpg"];
         }
         
-        cabCell.bannerImageView.image = bannerImage;
+        cabCell.bannerImageView.image = bannerImage;*/
+        
+        
     }
     
     return cell;

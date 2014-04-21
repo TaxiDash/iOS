@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionBarButtonItem;
 
+@property (weak, nonatomic) IBOutlet UIView *instructionView;
+
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
@@ -105,6 +107,15 @@
 - (IBAction)actionButtonTapped:(UIBarButtonItem *)sender {
     if ([sender.title isEqualToString:@"Route"]) {
         sender.title = @"End";
+        
+        /*[UIView animateWithDuration:0.5
+                         animations:^{
+                             self.instructionView.frame = CGRectOffset(self.instructionView.frame, 0, -CGRectGetHeight(self.instructionView.frame));
+                         } completion:^(BOOL finished) {
+                             [self.instructionView removeFromSuperview];
+                         }];*/
+        
+        [self.instructionView removeFromSuperview];
         
         MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
         directionsRequest.source = [MKMapItem mapItemForCurrentLocation];

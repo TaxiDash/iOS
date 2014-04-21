@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TAXRatingView;
+
 @interface TAXCabTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet TAXRatingView *ratingView;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *cabNumberLabel;
 
