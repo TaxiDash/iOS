@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mfi-FV-mfd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mfi-FV-mfd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,8 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nashville" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-ho-njL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brian.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IEN-KS-eaP">
-                                <rect key="frame" x="88" y="80" width="144" height="189"/>
+                                <rect key="frame" x="88" y="100" width="144" height="189"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="ham-ba-Sr9"/>
@@ -25,21 +29,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra6-mW-3jT">
-                                <rect key="frame" x="46" y="339" width="84" height="17"/>
+                                <rect key="frame" x="46" y="359" width="84" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="115" placeholderIntrinsicHeight="24" text="Valid License" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G17-2M-6cL">
-                                <rect key="frame" x="153" y="295" width="115" height="24"/>
+                                <rect key="frame" x="153" y="315" width="115" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN3-QD-TTQ">
-                                <rect key="frame" x="103" y="388" width="114" height="44"/>
+                                <rect key="frame" x="103" y="408" width="114" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Start Ride">
@@ -51,9 +55,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="69" placeholderIntrinsicHeight="60" text="0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhX-69-YZ6">
-                                <rect key="frame" x="54" y="280" width="69" height="60"/>
+                                <rect key="frame" x="54" y="300" width="69" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -61,13 +66,17 @@
                         <constraints>
                             <constraint firstItem="G17-2M-6cL" firstAttribute="top" secondItem="IEN-KS-eaP" secondAttribute="bottom" constant="26" id="1f0-L3-Xrh"/>
                             <constraint firstItem="HhX-69-YZ6" firstAttribute="centerX" secondItem="Ra6-mW-3jT" secondAttribute="centerX" id="4ZX-Zv-5QB"/>
-                            <constraint firstItem="IEN-KS-eaP" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="16" id="9aW-qF-dPX"/>
+                            <constraint firstItem="IEN-KS-eaP" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="36" id="9aW-qF-dPX"/>
                             <constraint firstItem="BN3-QD-TTQ" firstAttribute="centerX" secondItem="IEN-KS-eaP" secondAttribute="centerX" id="B3c-zg-cfG"/>
+                            <constraint firstAttribute="trailing" secondItem="3Ot-ho-njL" secondAttribute="trailing" id="PW6-ka-DTp"/>
+                            <constraint firstItem="IEd-kz-VGU" firstAttribute="top" secondItem="3Ot-ho-njL" secondAttribute="bottom" id="Qzh-L3-VHd"/>
                             <constraint firstItem="HhX-69-YZ6" firstAttribute="top" secondItem="IEN-KS-eaP" secondAttribute="bottom" constant="11" id="SP0-EM-8Ol"/>
                             <constraint firstItem="Ra6-mW-3jT" firstAttribute="top" secondItem="HhX-69-YZ6" secondAttribute="bottom" constant="-1" id="XAi-nV-v7G"/>
                             <constraint firstItem="BN3-QD-TTQ" firstAttribute="top" secondItem="Ra6-mW-3jT" secondAttribute="bottom" constant="32" id="arp-nM-IQh"/>
                             <constraint firstItem="IEN-KS-eaP" firstAttribute="leading" secondItem="Ra6-mW-3jT" secondAttribute="leading" constant="42" id="gwo-zb-6dt"/>
                             <constraint firstItem="IEN-KS-eaP" firstAttribute="trailing" secondItem="G17-2M-6cL" secondAttribute="trailing" constant="-36" id="hS0-30-GDJ"/>
+                            <constraint firstItem="3Ot-ho-njL" firstAttribute="top" secondItem="Q3t-BZ-x2u" secondAttribute="bottom" constant="-64" id="lnt-rX-axb"/>
+                            <constraint firstItem="3Ot-ho-njL" firstAttribute="leading" secondItem="lir-3J-6tX" secondAttribute="leading" id="tlB-cq-ai7"/>
                             <constraint firstAttribute="centerX" secondItem="IEN-KS-eaP" secondAttribute="centerX" id="wtb-rG-CBn"/>
                         </constraints>
                     </view>
@@ -431,6 +440,7 @@
     </scenes>
     <resources>
         <image name="brian.jpg" width="533" height="800"/>
+        <image name="nashville" width="321" height="502"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
