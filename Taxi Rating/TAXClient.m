@@ -136,7 +136,8 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
 - (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL))completionBlock {
     NSDictionary *params = @{@"rating": @{@"driver_id": driverID,
                                           @"rating": @(rating),
-                                          @"comments": comments}};
+                                          @"comments": comments,
+                                          @"rider_id": [[UIDevice currentDevice].identifierForVendor UUIDString]}};
     
     NSURLSessionDataTask *task = [self POST:@"ratings.json"
                                  parameters:params
