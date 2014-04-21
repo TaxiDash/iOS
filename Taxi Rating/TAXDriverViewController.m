@@ -18,8 +18,6 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 
 @interface TAXDriverViewController ()
 
-@property (strong, nonatomic) TAXDriver *driver;
-
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *validLabel;
@@ -48,21 +46,8 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
     
     self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
     
-    if (self.beacon) {
-        [[TAXClient sharedClient] fetchDriverWithBeaconID:self.beacon.minor
-                                      withCompletionBlock:^(BOOL success, TAXDriver *driver) {
-                                          if (success) {
-                                              self.driver = driver;
-                                          } else {
-                                              [[[UIAlertView alloc] initWithTitle:@"Failure"
-                                                                          message:@"Failed to connect to the server"
-                                                                         delegate:nil
-                                                                cancelButtonTitle:@"OK"
-                                                                otherButtonTitles:nil] show];
-                                          }
-                                      }];
-        
-        NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.beacon.minor]
+    if (self.driver) {
+        NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.driver.beacon.minor]
                                  relativeToURL:[NSURL URLWithString:kDriverImageURLString]];
         
         [self.imageView setImageWithURL:imageURL

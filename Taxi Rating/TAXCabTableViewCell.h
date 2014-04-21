@@ -14,6 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet TAXRatingView *ratingView;
 @property (weak, nonatomic) IBOutlet UIImageView *bannerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *cabNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *driverLabel;
 
 @end

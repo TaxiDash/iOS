@@ -110,7 +110,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allied Cabs #342" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDL-1z-nER">
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="180" placeholderIntrinsicHeight="30" text="Allied Cabs #342" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDL-1z-nER">
                                             <rect key="frame" x="90" y="11" width="180" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -139,7 +139,7 @@
                                                 <constraint firstAttribute="width" constant="54" id="tHg-tF-H74"/>
                                             </constraints>
                                         </view>
-                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brian Broll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-8e-3sD">
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="63" placeholderIntrinsicHeight="18" text="Brian Broll" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkD-8e-3sD">
                                             <rect key="frame" x="90" y="40" width="63" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -152,10 +152,14 @@
                                         <constraint firstItem="6Qk-Pr-AXJ" firstAttribute="top" secondItem="yhj-IV-n16" secondAttribute="top" constant="8" id="AuD-vT-JDM"/>
                                         <constraint firstItem="bDL-1z-nER" firstAttribute="leading" secondItem="6Qk-Pr-AXJ" secondAttribute="trailing" constant="16" id="CEU-A6-sOc"/>
                                         <constraint firstItem="bDL-1z-nER" firstAttribute="top" secondItem="yhj-IV-n16" secondAttribute="top" constant="11" id="CLd-33-id4"/>
+                                        <constraint firstItem="kkD-8e-3sD" firstAttribute="leading" secondItem="bDL-1z-nER" secondAttribute="leading" id="P3I-yV-nyy"/>
+                                        <constraint firstItem="kkD-8e-3sD" firstAttribute="top" secondItem="bDL-1z-nER" secondAttribute="bottom" constant="-1" id="csR-tG-tKH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cabNumberLabel" destination="bDL-1z-nER" id="bUs-GT-NBF"/>
+                                    <outlet property="driverLabel" destination="kkD-8e-3sD" id="KNh-Tg-c54"/>
+                                    <outlet property="ratingLabel" destination="nm5-3w-E8b" id="AGW-Ym-2S5"/>
                                     <outlet property="ratingView" destination="6Qk-Pr-AXJ" id="gPG-7b-MGv"/>
                                     <segue destination="T99-ww-Fym" kind="push" identifier="PushDriver" id="ABO-pg-Haz"/>
                                 </connections>

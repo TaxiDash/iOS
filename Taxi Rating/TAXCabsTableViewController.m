@@ -7,15 +7,16 @@
 //
 
 #import "TAXCabsTableViewController.h"
-#import "TAXCab.h"
+#import "TAXDriver.h"
 #import "TAXDriverViewController.h"
 #import "TAXLocationManagerDelegate.h"
 #import "TAXCabTableViewCell.h"
 #import "TAXRatingView.h"
+#import "TAXClient.h"
 
 @interface TAXCabsTableViewController ()
 
-@property (nonatomic, copy, readwrite) NSArray *cabs;
+@property (nonatomic, copy, readwrite) NSArray *drivers;
 
 @property (strong, nonatomic, readwrite) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
@@ -46,37 +47,18 @@
             
             [strongSelf.refreshControl endRefreshing];
             
-            NSMutableArray *cabs = [NSMutableArray arrayWithCapacity:[beacons count]];
-            
-            for (CLBeacon *beacon in beacons) {
-                [cabs addObject:[TAXCab cabWithBeacon:beacon]];
-            }
-            
-            [cabs sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"beacon"
-                                                                       ascending:YES
-                                                                      comparator:^NSComparisonResult(id obj1, id obj2) {
-                                                                          CLBeacon *beacon1 = obj1;
-                                                                          CLBeacon *beacon2 = obj2;
-                                                                          
-                                                                          CLProximity proximity1 = beacon1.proximity;
-                                                                          CLProximity proximity2 = beacon2.proximity;
-                                                                          
-                                                                          NSComparisonResult result;
-                                                                          
-                                                                          if (proximity1 == proximity2) {
-                                                                              result = NSOrderedSame;
-                                                                          } else if (proximity1 == CLProximityUnknown || proximity1 > proximity2) {
-                                                                              result = NSOrderedDescending;
-                                                                          } else {
-                                                                              result = NSOrderedAscending;
-                                                                          }
-                                                                          
-                                                                          return result;
-                                                                      }],
-                                         [NSSortDescriptor sortDescriptorWithKey:@"beacon.accuracy"
-                                                                       ascending:YES]]];
-            
-            strongSelf.cabs = [cabs copy];
+            [[TAXClient sharedClient] fetchDriversWithBeacons:beacons
+                                          withCompletionBlock:^(BOOL success, NSArray *drivers) {
+                                              if (success) {
+                                                  strongSelf.drivers = drivers;
+                                              } else {
+                                                  [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                                             message:@"Failed to connect to the server."
+                                                                            delegate:nil
+                                                                   cancelButtonTitle:@"OK"
+                                                                    otherButtonTitles:nil] show];
+                                              }
+                                          }];
         } andRangingBeaconsDidFailBlock:^{
             TAXCabsTableViewController *strongSelf = weakSelf;
             
@@ -89,9 +71,9 @@
 
 #pragma mark - Custom Setter
 
-- (void)setCabs:(NSArray *)cabs {
-    if (![_cabs isEqualToArray:cabs]) {
-        _cabs = cabs;
+- (void)setDrivers:(NSArray *)drivers {
+    if (![_drivers isEqualToArray:drivers]) {
+        _drivers = drivers;
         
         [self.tableView reloadData];
     }
@@ -123,7 +105,7 @@
 #pragma mark - Table View Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.cabs count];
+    return [self.drivers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,9 +115,12 @@
     if ([cell isKindOfClass:[TAXCabTableViewCell class]]) {
         TAXCabTableViewCell *cabCell = (TAXCabTableViewCell *)cell;
         
-        TAXCab *cab = self.cabs[indexPath.row];
+        TAXDriver *driver = self.drivers[indexPath.row];
         
         cabCell.ratingView.rating = TAXRatingHighRating;
+        cabCell.ratingLabel.text = [NSString stringWithFormat:@"%.1f", driver.averageRating];
+        cabCell.cabNumberLabel.text = [NSString stringWithFormat:@"%@ #%lu", driver.companyName, (unsigned long)driver.permitNumber];
+        cabCell.driverLabel.text = [NSString stringWithFormat:@"%@ %@", driver.firstName, driver.lastName];
         
         /*UIImage *bannerImage;
         
@@ -167,8 +152,8 @@
                 UITableViewCell *cell = sender;
                 NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
                 
-                TAXCab *cab = self.cabs[cellIndexPath.row];
-                driverViewController.beacon = cab.beacon;
+                TAXDriver *driver = self.drivers[cellIndexPath.row];
+                driverViewController.driver = driver;
             }
         }
     }

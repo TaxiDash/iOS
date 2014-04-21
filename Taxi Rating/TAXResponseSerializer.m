@@ -35,6 +35,7 @@
                                                  companyName:driverResponseDictionary[@"company_name"]
                                       physicalExpirationDate:driverResponseDictionary[@"physical_expiration_date"]
                                                        valid:driverResponseDictionary[@"valid"]
+                                                      beacon:nil
                                                averageRating:[self floatFromPotentiallyNullNumber:driverResponseDictionary[@"average_rating"]]
                                                 totalRatings:[self integerFromPotentiallyNullNumber:driverResponseDictionary[@"total_ratings"]]];
         }

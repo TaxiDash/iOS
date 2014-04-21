@@ -13,7 +13,7 @@
 
 @interface TAXCabsTableViewController : UITableViewController
 
-@property (nonatomic, copy, readonly) NSArray *cabs;
+@property (nonatomic, copy, readonly) NSArray *drivers;
 
 @property (strong, nonatomic, readonly) CLLocationManager *locationManager;
 

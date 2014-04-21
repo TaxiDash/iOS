@@ -8,6 +8,9 @@
 
 #import "TAXClient.h"
 #import "TAXResponseSerializer.h"
+#import "TAXDriver.h"
+
+@import CoreLocation;
 
 static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuapp.com/";
 
@@ -76,6 +79,58 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
                                    }];
     
     return task;
+}
+
+- (void)fetchDriversWithBeacons:(NSArray *)beacons withCompletionBlock:(void (^)(BOOL success, NSArray *drivers))completionBlock {
+    NSMutableArray *drivers = [NSMutableArray arrayWithCapacity:[beacons count]];
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    for (CLBeacon *beacon in beacons) {
+        dispatch_group_enter(group);
+        
+        [self fetchDriverWithBeaconID:beacon.minor
+                  withCompletionBlock:^(BOOL success, TAXDriver *driver) {
+                      if (success) {
+                          driver.beacon = beacon;
+                          [drivers addObject:driver];
+                      }
+                      
+                      dispatch_group_leave(group);
+                  }];
+    }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        if ([drivers count]) {
+            [drivers sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"beacon"
+                                                                          ascending:YES
+                                                                         comparator:^NSComparisonResult(id obj1, id obj2) {
+                                                                             CLBeacon *beacon1 = obj1;
+                                                                             CLBeacon *beacon2 = obj2;
+                                                                             
+                                                                             CLProximity proximity1 = beacon1.proximity;
+                                                                             CLProximity proximity2 = beacon2.proximity;
+                                                                             
+                                                                             NSComparisonResult result;
+                                                                             
+                                                                             if (proximity1 == proximity2) {
+                                                                                 result = NSOrderedSame;
+                                                                             } else if (proximity1 == CLProximityUnknown || proximity1 > proximity2) {
+                                                                                 result = NSOrderedDescending;
+                                                                             } else {
+                                                                                 result = NSOrderedAscending;
+                                                                             }
+                                                                             
+                                                                             return result;
+                                                                         }],
+                                            [NSSortDescriptor sortDescriptorWithKey:@"beacon.accuracy"
+                                                                          ascending:YES]]];
+            
+            completionBlock(YES, [drivers copy]);
+        } else {
+            completionBlock(NO, nil);
+        }
+    });
 }
 
 - (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL))completionBlock {

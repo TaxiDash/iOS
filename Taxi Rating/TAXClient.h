@@ -16,6 +16,8 @@
 
 - (NSURLSessionDataTask *)fetchDriverWithBeaconID:(NSNumber *)beaconID withCompletionBlock:(void (^)(BOOL success, TAXDriver *driver))completionBlock;
 
+- (void)fetchDriversWithBeacons:(NSArray *)beacons withCompletionBlock:(void (^)(BOOL success, NSArray *drivers))completionBlock;
+
 - (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL success))completionBlock;
 
 @end

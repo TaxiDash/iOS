@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CLBeacon;
+
 @interface TAXDriver : NSObject
 
 @property (nonatomic, copy) NSString *identifier;
@@ -23,6 +25,7 @@
 @property (nonatomic, copy) NSString *companyName;
 @property (nonatomic, copy) NSString *physicalExpirationDate;
 @property (nonatomic, getter = isValid) BOOL valid;
+@property (strong, nonatomic) CLBeacon *beacon;
 @property (nonatomic) CGFloat averageRating;
 @property (nonatomic) NSUInteger totalRatings;
 
@@ -38,6 +41,7 @@
                       companyName:(NSString *)companyName
            physicalExpirationDate:(NSString *)physicalExpirationDate
                             valid:(BOOL)valid
+                            beacon:(CLBeacon *)beacon
                     averageRating:(CGFloat)averageRating
                      totalRatings:(NSUInteger)totalRatings;
 
@@ -53,6 +57,7 @@
                          companyName:(NSString *)companyName
               physicalExpirationDate:(NSString *)physicalExpirationDate
                                valid:(BOOL)valid
+                              beacon:(CLBeacon *)beacon
                        averageRating:(CGFloat)averageRating
                         totalRatings:(NSUInteger)totalRatings;
 

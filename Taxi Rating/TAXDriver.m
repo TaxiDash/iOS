@@ -24,6 +24,7 @@
                        companyName:(NSString *)companyName
             physicalExpirationDate:(NSString *)physicalExpirationDate
                              valid:(BOOL)valid
+                            beacon:(CLBeacon *)beacon
                      averageRating:(CGFloat)averageRating
                       totalRatings:(NSUInteger)totalRatings; {
     self = [super init];
@@ -42,6 +43,7 @@
         _companyName = companyName;
         _physicalExpirationDate = physicalExpirationDate;
         _valid = valid;
+        _beacon = beacon;
         _averageRating = averageRating;
         _totalRatings = totalRatings;
     }
@@ -63,23 +65,25 @@
                          companyName:(NSString *)companyName
               physicalExpirationDate:(NSString *)physicalExpirationDate
                                valid:(BOOL)valid
+                              beacon:(CLBeacon *)beacon
                        averageRating:(CGFloat)averageRating
                         totalRatings:(NSUInteger)totalRatings; {
     
-    return [[self alloc] initWithIdentifier:(NSString *)identifier
-                                  firstName:(NSString *)firstName
-                                 middleName:(NSString *)middleName
-                                   lastName:(NSString *)lastName
-                                    license:(NSString *)license
-                     trainingCompletionDate:(NSString *)trainingCompletionDate
-                       permitExpirationDate:(NSString *)permitExpirationDate
-                               permitNumber:(NSUInteger)permitNumber
-                                     status:(NSString *)status
-                                companyName:(NSString *)companyName
-                     physicalExpirationDate:(NSString *)physicalExpirationDate
-                                      valid:(BOOL)valid
-                              averageRating:(CGFloat)averageRating
-                               totalRatings:(NSUInteger)totalRatings];
+    return [[self alloc] initWithIdentifier:identifier
+                                  firstName:firstName
+                                 middleName:middleName
+                                   lastName:lastName
+                                    license:license
+                     trainingCompletionDate:trainingCompletionDate
+                       permitExpirationDate:permitExpirationDate
+                               permitNumber:permitNumber
+                                     status:status
+                                companyName:companyName
+                     physicalExpirationDate:physicalExpirationDate
+                                      valid:valid
+                                     beacon:beacon
+                              averageRating:averageRating
+                               totalRatings:totalRatings];
 }
 
 #pragma mark - NSObject
