@@ -8,6 +8,8 @@
 
 #import "TAXRideViewController.h"
 
+#define IS_DEMO YES
+
 @import MapKit;
 
 @interface TAXRideViewController () <MKMapViewDelegate>
@@ -150,8 +152,14 @@
             }
         }];
     } else { // End
+        // TODO - Keep track of how far the user has gone and offer the rating at that point.
+        UINavigationController *navigationViewController = (UINavigationController *)self.presentingViewController;
+        
         [self.presentingViewController dismissViewControllerAnimated:YES
-                                                          completion:nil];
+                                                          completion:^{
+                                                              [navigationViewController.visibleViewController performSegueWithIdentifier:@"PresentRate"
+                                                                                                                                  sender:navigationViewController.visibleViewController];
+                                                          }];
     }
 }
 
