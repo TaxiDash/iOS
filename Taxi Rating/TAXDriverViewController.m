@@ -113,6 +113,9 @@ static NSString * const kDriverImageURLString = @"http://taxi-rating-server.hero
 // Unwind segue
 - (IBAction)userDidCancelRating:(UIStoryboardSegue *)segue {}
 
+// Unwind segue
+- (IBAction)userDidCancelRide:(UIStoryboardSegue *)segue {}
+
 #pragma mark - Helper Method
 
 - (void)endRide {

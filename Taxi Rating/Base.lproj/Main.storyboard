@@ -368,6 +368,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Destination" id="wDy-V2-3lw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xld-6b-NbQ">
+                            <connections>
+                                <segue destination="WdP-e7-2we" kind="unwind" unwindAction="userDidCancelRide:" id="X06-ag-6h1"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="PAK-KN-Suw">
                             <connections>
                                 <segue destination="Zrt-pO-gZf" kind="push" identifier="PushRide" id="Wk0-yX-YvP"/>
@@ -379,6 +384,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSn-Gs-Ec8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WdP-e7-2we" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2180" y="825"/>
         </scene>
