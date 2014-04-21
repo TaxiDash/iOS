@@ -10,8 +10,11 @@
 #import "TAXClient.h"
 #import "TAXDriver.h"
 #import "TAXRateViewController.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @import CoreLocation;
+
+static NSString * const kDriverImageURLString = @"http://taxi-rating-server.herokuapp.com/mobile/images/drivers/";
 
 @interface TAXDriverViewController ()
 
@@ -56,6 +59,12 @@
                                                                 otherButtonTitles:nil] show];
                                           }
                                       }];
+        
+        NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", self.beacon.minor]
+                                 relativeToURL:[NSURL URLWithString:kDriverImageURLString]];
+        
+        [self.imageView setImageWithURL:imageURL
+                       placeholderImage:nil];
     }
 }
 
