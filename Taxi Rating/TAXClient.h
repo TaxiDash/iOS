@@ -20,7 +20,7 @@
 
 - (void)fetchDriversWithBeacons:(NSArray *)beacons withCompletionBlock:(void (^)(BOOL success, NSArray *drivers))completionBlock;
 
-- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL success))completionBlock;
+- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments startCoordinate:(CLLocationCoordinate2D)startCoordinate endCoordinate:(CLLocationCoordinate2D)endCoordinate estimatedFare:(CGFloat)estimatedFare actualFare:(CGFloat)actualFare andCompletionBlock:(void (^)(BOOL))completionBlock;
 
 - (NSURLSessionDataTask *)postRideWithStartCoordinate:(CLLocationCoordinate2D)startCoordinate endCoordinate:(CLLocationCoordinate2D)endCoordinate driverID:(NSString *)driverID ratingID:(NSString *)ratingID estimatedFare:(CGFloat)estimatedFare actualFare:(CGFloat)actualFare andCompletionBlock:(void (^)(BOOL success))completionBlock;
 

@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *fourStarButton;
 @property (weak, nonatomic) IBOutlet UIButton *fiveStarButton;
 @property (weak, nonatomic) IBOutlet SAMTextView *commentsTextView;
+@property (weak, nonatomic) IBOutlet UITextField *actualFareTextField;
+@property (weak, nonatomic) IBOutlet UITextField *estimatedFareTextField;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -91,12 +93,16 @@
         [[TAXClient sharedClient] postRatingForDriverID:self.driver.identifier
                                              withRating:self.rating
                                                comments:self.commentsTextView.text
+                                        startCoordinate:CLLocationCoordinate2DMake(0, 0)
+                                          endCoordinate:CLLocationCoordinate2DMake(1, 2)
+                                          estimatedFare:[self.estimatedFareTextField.text floatValue]
+                                             actualFare:[self.actualFareTextField.text floatValue]
                                      andCompletionBlock:^(BOOL success) {
                                          if (success) {
                                              [[[UIAlertView alloc] initWithTitle:@"Success"
-                                                                        message:@"Successfully posted rating!"
-                                                                       delegate:nil
-                                                              cancelButtonTitle:@"OK"
+                                                                         message:@"Successfully posted rating!"
+                                                                        delegate:nil
+                                                               cancelButtonTitle:@"OK"
                                                                otherButtonTitles:nil] show];
                                          } else {
                                              [[[UIAlertView alloc] initWithTitle:@"Failure"

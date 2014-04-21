@@ -133,11 +133,21 @@ static NSString * const kTAXBaseURLString = @"http://taxi-rating-server.herokuap
     });
 }
 
-- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments andCompletionBlock:(void (^)(BOOL))completionBlock {
+- (NSURLSessionDataTask *)postRatingForDriverID:(NSString *)driverID withRating:(NSInteger)rating comments:(NSString *)comments startCoordinate:(CLLocationCoordinate2D)startCoordinate endCoordinate:(CLLocationCoordinate2D)endCoordinate estimatedFare:(CGFloat)estimatedFare actualFare:(CGFloat)actualFare andCompletionBlock:(void (^)(BOOL))completionBlock {
+    NSString *UUIDString = [[UIDevice currentDevice].identifierForVendor UUIDString];
+    
     NSDictionary *params = @{@"rating": @{@"driver_id": driverID,
                                           @"rating": @(rating),
                                           @"comments": comments,
-                                          @"rider_id": [[UIDevice currentDevice].identifierForVendor UUIDString]}};
+                                          @"rider_id": UUIDString},
+                             @"ride": @{@"driver_id": driverID,
+                                        @"rider_id": UUIDString,
+                                        @"start_latitude": @(startCoordinate.latitude),
+                                        @"start_longitude": @(startCoordinate.longitude),
+                                        @"end_latitude": @(endCoordinate.latitude),
+                                        @"end_longitude": @(endCoordinate.longitude),
+                                        @"estimated_fare": @(estimatedFare),
+                                        @"actual_fare": @(actualFare)}};
     
     NSURLSessionDataTask *task = [self POST:@"ratings.json"
                                  parameters:params
