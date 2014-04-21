@@ -338,7 +338,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="RhK-UH-eD2"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search"/>
                             </textView>
