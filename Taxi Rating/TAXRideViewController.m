@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionBarButtonItem;
 
+@property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *costLabel;
 
@@ -130,6 +131,7 @@
                 self.costLabel.text = [NSString stringWithFormat:@"$%.2f", [self fareForDirectionsResponse:response
                                                                                                  withRoute:route]];
                 
+                self.infoView.hidden = NO;
                 self.distanceLabel.hidden = NO;
                 self.costLabel.hidden = NO;
             } else {

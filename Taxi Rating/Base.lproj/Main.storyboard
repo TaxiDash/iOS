@@ -380,25 +380,40 @@
                                     <outlet property="delegate" destination="Zrt-pO-gZf" id="Xpo-CC-Eff"/>
                                 </connections>
                             </mapView>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="77" placeholderIntrinsicHeight="24" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-41-Ykr">
-                                <rect key="frame" x="20" y="82" width="77" height="24"/>
+                            <view hidden="YES" opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kt1-X5-YUO">
+                                <rect key="frame" x="0.0" y="64" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="24" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWj-JO-daG">
-                                <rect key="frame" x="258" y="82" width="42" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="77" placeholderIntrinsicHeight="24" text="Distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-41-Ykr">
+                                        <rect key="frame" x="20" y="9" width="77" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="24" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWj-JO-daG">
+                                        <rect key="frame" x="258" y="9" width="42" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ECc-41-Ykr" firstAttribute="leading" secondItem="Kt1-X5-YUO" secondAttribute="leading" constant="20" id="CMg-IC-lpD"/>
+                                    <constraint firstAttribute="trailing" secondItem="jWj-JO-daG" secondAttribute="trailing" constant="20" id="Fyu-Gz-7jP"/>
+                                    <constraint firstAttribute="height" constant="42" id="OEC-Cj-eeS"/>
+                                    <constraint firstItem="jWj-JO-daG" firstAttribute="top" secondItem="Kt1-X5-YUO" secondAttribute="top" constant="9" id="Rms-p9-SAX"/>
+                                    <constraint firstItem="ECc-41-Ykr" firstAttribute="top" secondItem="Kt1-X5-YUO" secondAttribute="top" constant="9" id="zhC-ph-tmY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jWj-JO-daG" secondAttribute="trailing" constant="20" id="Q9S-cq-a18"/>
-                            <constraint firstItem="ECc-41-Ykr" firstAttribute="leading" secondItem="Nth-CM-b5n" secondAttribute="leading" constant="20" id="iaG-9f-jsW"/>
-                            <constraint firstItem="jWj-JO-daG" firstAttribute="top" secondItem="EcZ-kS-RP5" secondAttribute="bottom" constant="18" id="mqq-gI-JVX"/>
-                            <constraint firstItem="ECc-41-Ykr" firstAttribute="top" secondItem="EcZ-kS-RP5" secondAttribute="bottom" constant="18" id="sOd-r1-rEL"/>
+                            <constraint firstAttribute="trailing" secondItem="Kt1-X5-YUO" secondAttribute="trailing" id="Oah-gC-RJE"/>
+                            <constraint firstItem="Kt1-X5-YUO" firstAttribute="top" secondItem="EcZ-kS-RP5" secondAttribute="bottom" id="WdR-GJ-kiz"/>
+                            <constraint firstItem="Kt1-X5-YUO" firstAttribute="leading" secondItem="Nth-CM-b5n" secondAttribute="leading" id="bfB-CY-nop"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ride" id="McO-UF-e22">
@@ -412,6 +427,7 @@
                         <outlet property="actionBarButtonItem" destination="9dI-vB-GYD" id="niJ-z3-oos"/>
                         <outlet property="costLabel" destination="jWj-JO-daG" id="Kqz-sW-Mfw"/>
                         <outlet property="distanceLabel" destination="ECc-41-Ykr" id="b8y-l0-cEa"/>
+                        <outlet property="infoView" destination="Kt1-X5-YUO" id="q8J-76-SHD"/>
                         <outlet property="mapView" destination="3Sy-PG-Vgg" id="mVk-z3-DOe"/>
                     </connections>
                 </viewController>
