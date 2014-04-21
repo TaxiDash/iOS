@@ -327,22 +327,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nashville" translatesAutoresizingMaskIntoConstraints="NO" id="8pD-z2-p4h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="6iG-gt-bsC">
-                                <rect key="frame" x="0.0" y="84" width="320" height="220"/>
+                                <rect key="frame" x="0.0" y="174" width="320" height="220"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="RhK-UH-eD2"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="search"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your destination?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ata-8r-fAp">
+                                <rect key="frame" x="56" y="116" width="209" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(you can enter a business name, address, or intersection)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAx-li-Qfn">
+                                <rect key="frame" x="5" y="147" width="310" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6iG-gt-bsC" firstAttribute="top" secondItem="pVQ-lZ-GxU" secondAttribute="bottom" constant="20" id="cbX-nA-Coh"/>
+                            <constraint firstItem="AAx-li-Qfn" firstAttribute="centerX" secondItem="ata-8r-fAp" secondAttribute="centerX" constant="-0.5" id="OK3-KK-IJB"/>
+                            <constraint firstItem="6iG-gt-bsC" firstAttribute="top" secondItem="pVQ-lZ-GxU" secondAttribute="bottom" constant="110" id="cbX-nA-Coh"/>
                             <constraint firstItem="6iG-gt-bsC" firstAttribute="leading" secondItem="oUo-OW-qI6" secondAttribute="leading" id="hzP-Kf-Bib"/>
+                            <constraint firstItem="ata-8r-fAp" firstAttribute="top" secondItem="pVQ-lZ-GxU" secondAttribute="bottom" constant="52" id="k0W-hO-2OS"/>
+                            <constraint firstAttribute="centerX" secondItem="ata-8r-fAp" secondAttribute="centerX" constant="-0.5" id="we9-Uv-7I5"/>
+                            <constraint firstItem="AAx-li-Qfn" firstAttribute="top" secondItem="ata-8r-fAp" secondAttribute="bottom" constant="7" id="xLm-nj-dhb"/>
                             <constraint firstAttribute="trailing" secondItem="6iG-gt-bsC" secondAttribute="trailing" id="znX-gJ-nkb"/>
                         </constraints>
                     </view>
