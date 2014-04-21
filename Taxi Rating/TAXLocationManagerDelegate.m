@@ -52,11 +52,23 @@
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
     self.rangingBeaconsDidFailBlock();
     
-    [[[UIAlertView alloc] initWithTitle:@"Bluetooth Disabled"
-                                message:@"Your Bluetooth may be disabled. Please turn this back on, or the app will not be able to locate nearby cabs for you."
-                               delegate:nil
-                      cancelButtonTitle:@"OK"
-                      otherButtonTitles:nil] show];
+    switch (error.code) {
+        case 16:
+            [[[UIAlertView alloc] initWithTitle:@"Bluetooth Failed"
+                                        message:@"Unfortunately, something's wrong with your Bluetooth, and the only solution is to turn your device off and back on again. We're sorry for the inconvenience, and we hope Apple corrects this bug soon!"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            break;
+            
+        default:
+            [[[UIAlertView alloc] initWithTitle:@"Bluetooth Disabled"
+                                        message:@"Your Bluetooth may be disabled. Please turn this back on, or the app will not be able to locate nearby cabs for you."
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            break;
+    }
 }
 
 @end
